@@ -11,6 +11,7 @@ const SPEED = 500.0
 
 var move: float
 
+## Sets the direction and starts the time for the bomb.
 func set_speed(is_right) -> void:
 	move = SPEED if is_right else -SPEED
 	var timer = Timer.new()
@@ -26,6 +27,8 @@ func _physics_process(delta: float) -> void:
 	velocity.x = move
 	move_and_slide()
 	
+## bomb goes boom! [br]
+## In all seriousness, it causes an explosion, with lots of cell destruction!.
 func _explode():
 	var cam = get_viewport().get_camera_2d()
 	if cam and cam.has_method("start_shake"):

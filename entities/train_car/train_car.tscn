@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://couc0arcgkuet"]
+
+[ext_resource type="Texture2D" uid="uid://cd3wulhqurbec" path="res://level/bg.png" id="1_lld3l"]
+[ext_resource type="Script" uid="uid://0368qaqvbntg" path="res://entities/train_car/train_car.gd" id="2_onlp1"]
+[ext_resource type="Script" uid="uid://cf0thh0gscwcv" path="res://entities/train_car/door.gd" id="3_b54ri"]
+[ext_resource type="Texture2D" uid="uid://8do2pmqgynyw" path="res://entities/train_car/train_front.png" id="4_fkcyj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_onlp1"]
+size = Vector2(0.7594948, 8.35443)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b54ri"]
+size = Vector2(4.1983147, 7.9324894)
+
+[node name="TrainCar" type="Sprite2D" unique_id=2034773766 node_paths=PackedStringArray("door_l", "door_r", "area", "foreground", "level_node")]
+scale = Vector2(11.85, 11.85)
+texture = ExtResource("1_lld3l")
+script = ExtResource("2_onlp1")
+door_l = NodePath("Door_L")
+door_r = NodePath("Door_R")
+area = NodePath("Area2D")
+foreground = NodePath("Sprite2D")
+color = Color(0.22352941, 0.14901961, 0.13725491, 1)
+level_node = NodePath("Node2D")
+
+[node name="Door_R" type="StaticBody2D" parent="." unique_id=944193226 node_paths=PackedStringArray("sprite", "col")]
+script = ExtResource("3_b54ri")
+sprite = NodePath("ColorRect2")
+col = NodePath("CollisionShape2D2")
+
+[node name="ColorRect2" type="ColorRect" parent="Door_R" unique_id=1747974601]
+offset_left = 32.827003
+offset_top = 2.7004218
+offset_right = 33.5865
+offset_bottom = 10.970465
+color = Color(0, 0, 0.06666667, 1)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Door_R" unique_id=1199387824]
+position = Vector2(33.375526, 7.2151895)
+shape = SubResource("RectangleShape2D_onlp1")
+
+[node name="Door_L" type="StaticBody2D" parent="." unique_id=2027517080 node_paths=PackedStringArray("sprite", "col")]
+script = ExtResource("3_b54ri")
+sprite = NodePath("ColorRect")
+col = NodePath("CollisionShape2D")
+color = Color(0, 0, 0.06666667, 1)
+
+[node name="ColorRect" type="ColorRect" parent="Door_L" unique_id=1232489210]
+offset_left = -34.00844
+offset_top = 2.7004218
+offset_right = -33.248943
+offset_bottom = 10.970465
+color = Color(0, 0, 0.06666667, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door_L" unique_id=1549327042]
+position = Vector2(-33.62869, 7.2151895)
+shape = SubResource("RectangleShape2D_onlp1")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=341749029]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=786701690]
+visible = false
+polygon = PackedVector2Array(33.92405, 2.869198, 34.00844, -19.999998, -33.92405, -19.915611, -33.92405, 3.0379746, -31.98312, 3.0379746, -32.06751, -17.974682, 32.06751, -17.805906, 31.898733, 2.9535863)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=521699636]
+visible = false
+polygon = PackedVector2Array(31.98312, 11.392405, 35.021095, 10.886075, 35.021095, 14.008438, 33.92405, 14.008438, 33.83966, 16.118143, -33.92405, 16.033754, -33.755272, 13.92405, -34.936707, 14.092826, -34.936707, 11.223628, -31.98312, 11.13924, -31.898733, 13.92405, 32.06751, 14.008438)
+
+[node name="Node2D" type="Node2D" parent="." unique_id=539872868]
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1442847146]
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=13131203]
+position = Vector2(37.035862, 6.919831)
+shape = SubResource("RectangleShape2D_b54ri")
+debug_color = Color(0.2476202, 0.9078648, 0, 0.41960785)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=643395689]
+position = Vector2(0, -2.0253167)
+texture = ExtResource("4_fkcyj")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_hit"]

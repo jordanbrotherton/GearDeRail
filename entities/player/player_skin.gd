@@ -8,10 +8,25 @@ extends Node2D
 func _ready() -> void:
 	pass # Replace with function body.
 
+## When a player changes states, reflect in the skin.
 func on_state_change(state):
 	match state:
 		Player.states.STILL:
 			sprite.animation = "still"
+			sprite.play()
+		Player.states.MOVING:
+			sprite.animation = "run"
+			sprite.play()
+		Player.states.DEAD:
+			sprite.animation = "death"
+			sprite.play()
+		Player.states.JUMP:
+			sprite.animation = "jump"
+			sprite.play()
 
+
+## Swaps the player's animations to the other direction.
 func swap_side(side: bool):
+	print('a')
 	sprite.sprite_frames = anim[int(side)]
+	sprite.play()

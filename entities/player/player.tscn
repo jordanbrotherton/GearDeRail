@@ -24,7 +24,8 @@ shape = SubResource("RectangleShape2D_sfv1e")
 [node name="PlayerSkin" parent="." unique_id=1084475956 instance=ExtResource("2_abrql")]
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1229160439]
-position = Vector2(3.72129, 2.6580644)
+position = Vector2(-5.3161283, 1.5948386)
+amount = 10
 texture = ExtResource("3_sglur")
 randomness = 1.0
 emission_shape = 1
@@ -37,3 +38,5 @@ angular_velocity_max = 200.0
 color_ramp = SubResource("Gradient_sglur")
 hue_variation_min = -1.0
 hue_variation_max = 1.0
+
+[connection signal="state_change" from="." to="PlayerSkin" method="on_state_change"]
