@@ -1,0 +1,14 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://c0u87aifa887s"]
+
+[ext_resource type="Texture2D" uid="uid://cxwd8b0hppij4" path="res://entities/player/sprites/Protag_Still_R.png" id="1_db82b"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_db82b")
+}],
+"loop": true,
+"name": &"still",
+"speed": 5.0
+}]

@@ -2,9 +2,14 @@
 
 [ext_resource type="Script" uid="uid://cjlgopelrqqif" path="res://entities/player/player.gd" id="1_symyc"]
 [ext_resource type="PackedScene" uid="uid://bshhet1ua54ys" path="res://entities/player/player_skin.tscn" id="2_abrql"]
+[ext_resource type="Texture2D" uid="uid://dqegvc5g8j0f8" path="res://entities/player/sprites/glow.png" id="3_sglur"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sfv1e"]
 size = Vector2(14, 32)
+
+[sub_resource type="Gradient" id="Gradient_sglur"]
+offsets = PackedFloat32Array(0.015410959, 0.36472604, 0.6900685, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
 
 [node name="Player" type="CharacterBody2D" unique_id=889772964 node_paths=PackedStringArray("player_skin")]
 scale = Vector2(1.8810681, 1.8810681)
@@ -15,3 +20,18 @@ player_skin = NodePath("PlayerSkin")
 shape = SubResource("RectangleShape2D_sfv1e")
 
 [node name="PlayerSkin" parent="." unique_id=1084475956 instance=ExtResource("2_abrql")]
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1229160439]
+position = Vector2(3.72129, 2.6580644)
+texture = ExtResource("3_sglur")
+randomness = 1.0
+emission_shape = 1
+emission_sphere_radius = 4.0
+direction = Vector2(5.98, 0)
+spread = 2.76
+gravity = Vector2(0, 4.5)
+angular_velocity_min = -200.0
+angular_velocity_max = 200.0
+color_ramp = SubResource("Gradient_sglur")
+hue_variation_min = -1.0
+hue_variation_max = 1.0

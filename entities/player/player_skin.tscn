@@ -1,20 +1,40 @@
 [gd_scene format=3 uid="uid://bshhet1ua54ys"]
 
-[ext_resource type="Texture2D" uid="uid://c2a86s6ak1s10" path="res://entities/player/sprites/Protag_Still.png" id="1_tur3g"]
+[ext_resource type="Script" uid="uid://brjohsaqdft1w" path="res://entities/player/player_skin.gd" id="1_tur3g"]
+[ext_resource type="SpriteFrames" uid="uid://c0u87aifa887s" path="res://entities/player/anim/right.tres" id="2_b85me"]
+[ext_resource type="SpriteFrames" uid="uid://chp55qvigm55c" path="res://entities/player/anim/left.tres" id="2_l61hm"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_b85me"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("1_tur3g")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
+[sub_resource type="Animation" id="Animation_b85me"]
+resource_name = "still"
 
-[node name="PlayerSkin" type="Node2D" unique_id=1084475956]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_l61hm"]
+_data = {
+&"still": SubResource("Animation_b85me")
+}
+
+[sub_resource type="AnimationRootNode" id="AnimationRootNode_tur3g"]
+
+[sub_resource type="AnimationRootNode" id="AnimationRootNode_b85me"]
+
+[node name="PlayerSkin" type="Node2D" unique_id=1084475956 node_paths=PackedStringArray("sprite")]
+script = ExtResource("1_tur3g")
+sprite = NodePath("AnimatedSprite2D")
+anim = Array[SpriteFrames]([ExtResource("2_l61hm"), ExtResource("2_b85me")])
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2012692706]
 scale = Vector2(-1, 1)
-sprite_frames = SubResource("SpriteFrames_b85me")
+sprite_frames = ExtResource("2_b85me")
+animation = &"still"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite2D" unique_id=1660852616]
+libraries/ = SubResource("AnimationLibrary_l61hm")
+
+[node name="LAnimationTree" type="AnimationTree" parent="." unique_id=1174788757]
+root_node = NodePath("../AnimatedSprite2D")
+tree_root = SubResource("AnimationRootNode_tur3g")
+anim_player = NodePath("../AnimatedSprite2D/AnimationPlayer")
+
+[node name="RAnimationTree" type="AnimationTree" parent="." unique_id=9714658]
+root_node = NodePath("../AnimatedSprite2D")
+tree_root = SubResource("AnimationRootNode_b85me")
+anim_player = NodePath("../AnimatedSprite2D/AnimationPlayer")
