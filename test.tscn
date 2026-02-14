@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://blcsvjos7srea"]
+
+[ext_resource type="PackedScene" uid="uid://bxvkp7mqo223j" path="res://entities/player/player.tscn" id="1_37kl0"]
+[ext_resource type="Script" uid="uid://bwggbcs6sdhn3" path="res://entities/player/camera.gd" id="2_8uh7m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mf4mk"]
+size = Vector2(711, 57)
+
+[node name="Node2D" type="Node2D" unique_id=1954199207]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=881439345]
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D" unique_id=859888687]
+offset_right = 710.0
+offset_bottom = 56.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1260427704]
+position = Vector2(354.5, 29.5)
+shape = SubResource("RectangleShape2D_mf4mk")
+
+[node name="Player" parent="StaticBody2D" unique_id=328416733 instance=ExtResource("1_37kl0")]
+position = Vector2(304, -92)
+DASH_VELOCITY = 4000
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1129138020 node_paths=PackedStringArray("focus_target")]
+position_smoothing_enabled = true
+script = ExtResource("2_8uh7m")
+focus_target = NodePath("../StaticBody2D/Player")
