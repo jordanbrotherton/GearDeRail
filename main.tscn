@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://b2j8va1qg8ghd" path="res://conductor.gd" id="1_272bh"]
 [ext_resource type="PackedScene" uid="uid://j25b3w3mgw6j" path="res://level/loadables/1.tscn" id="2_lquwl"]
 [ext_resource type="PackedScene" uid="uid://bbdthj7fwk44h" path="res://level/loadables/test2.tscn" id="4_4c57u"]
+[ext_resource type="PackedScene" uid="uid://cgqyi8wgvf0iw" path="res://level/bg/background.tscn" id="4_272bh"]
 [ext_resource type="PackedScene" uid="uid://couc0arcgkuet" path="res://entities/train_car/train_car.tscn" id="5_efxa6"]
 [ext_resource type="Script" uid="uid://bwggbcs6sdhn3" path="res://entities/player/camera.gd" id="6_dg77c"]
 [ext_resource type="PackedScene" uid="uid://bxvkp7mqo223j" path="res://entities/player/player.tscn" id="7_ycdy4"]
@@ -16,6 +17,11 @@ right_car = NodePath("TrainCar3")
 
 [node name="TrainCar" parent="." unique_id=2034773766 instance=ExtResource("5_efxa6")]
 position = Vector2(0, -164)
+
+[node name="Background" parent="TrainCar" unique_id=428480095 instance=ExtResource("4_272bh")]
+z_index = -1
+position = Vector2(73.08017, 1.097045)
+scale = Vector2(1.7740486, 1.7740486)
 
 [node name="TrainCar2" parent="." unique_id=1386361706 instance=ExtResource("5_efxa6")]
 position = Vector2(829.5, -164)

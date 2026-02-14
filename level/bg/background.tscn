@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://cgqyi8wgvf0iw"]
+
+[ext_resource type="Texture2D" uid="uid://jfvc8apnicuy" path="res://level/bg/bg_track.png" id="1_33u77"]
+[ext_resource type="Texture2D" uid="uid://chgfwkd2uraje" path="res://level/bg/bg_cloud.png" id="1_e7syf"]
+[ext_resource type="Texture2D" uid="uid://cb0mlhrlu1ulw" path="res://level/bg/bg_mount_2.png" id="2_tcg3t"]
+[ext_resource type="Texture2D" uid="uid://c3aeuvamaxx7n" path="res://level/bg/bg_mount_1.png" id="3_u6e21"]
+
+[node name="Background" type="Node2D" unique_id=428480095]
+
+[node name="Parallax2D2" type="Parallax2D" parent="." unique_id=2084850510]
+scroll_scale = Vector2(0.2, 1)
+scroll_offset = Vector2(-11, 19)
+repeat_size = Vector2(24, 0)
+autoscroll = Vector2(-20, 0)
+repeat_times = 10
+ignore_camera_scroll = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D2" unique_id=733367700]
+texture_repeat = 2
+position = Vector2(0, -30)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_e7syf")
+
+[node name="Parallax2D4" type="Parallax2D" parent="." unique_id=1522715237]
+scroll_scale = Vector2(0.5, 1)
+scroll_offset = Vector2(-11, 5)
+repeat_size = Vector2(24, 0)
+autoscroll = Vector2(-25, 0)
+repeat_times = 10
+ignore_camera_scroll = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D4" unique_id=56616931]
+texture_repeat = 2
+position = Vector2(0, -13.000002)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_tcg3t")
+
+[node name="Parallax2D3" type="Parallax2D" parent="." unique_id=1615181891]
+scroll_scale = Vector2(0.7, 1)
+scroll_offset = Vector2(-11, 9)
+repeat_size = Vector2(24, 0)
+autoscroll = Vector2(-28, 0)
+repeat_times = 10
+ignore_camera_scroll = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D3" unique_id=2029685017]
+texture_repeat = 2
+position = Vector2(0, -13.000002)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("3_u6e21")
+
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=236380402]
+repeat_size = Vector2(64, 0)
+autoscroll = Vector2(-32, 0)
+repeat_times = 10
+ignore_camera_scroll = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D" unique_id=129914024]
+texture_repeat = 2
+texture = ExtResource("1_33u77")
