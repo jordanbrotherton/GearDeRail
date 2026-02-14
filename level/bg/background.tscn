@@ -58,3 +58,10 @@ ignore_camera_scroll = true
 [node name="Sprite2D" type="Sprite2D" parent="Parallax2D" unique_id=129914024]
 texture_repeat = 2
 texture = ExtResource("1_33u77")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=219209083]
+offset_left = -113.0
+offset_top = 14.0
+offset_right = 121.0
+offset_bottom = 54.0
+color = Color(0.56078434, 0.5921569, 0.2901961, 1)

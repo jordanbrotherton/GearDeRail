@@ -1,14 +1,25 @@
 [gd_resource type="TileSet" format=3 uid="uid://campbvkxqwrfm"]
 
 [ext_resource type="Texture2D" uid="uid://cemco2gfs25rf" path="res://level/tile2.png" id="1_nxsmn"]
+[ext_resource type="Texture2D" uid="uid://dg0bfakmef47l" path="res://level/tile3.png" id="2_sj4x2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sj4x2"]
 texture = ExtResource("1_nxsmn")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:0/0/custom_data_0 = true
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nsp82"]
+texture = ExtResource("2_sj4x2")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:0/0/custom_data_1 = true
 
 [resource]
 physics_layer_0/collision_layer = 1
 custom_data_layer_0/name = "breakable"
 custom_data_layer_0/type = 1
+custom_data_layer_1/name = "damage"
+custom_data_layer_1/type = 1
 sources/0 = SubResource("TileSetAtlasSource_sj4x2")
+sources/1 = SubResource("TileSetAtlasSource_nsp82")

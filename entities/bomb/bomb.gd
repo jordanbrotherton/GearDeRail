@@ -44,10 +44,11 @@ func _explode():
 				if Geometry2D.is_point_in_circle(local_position,col_shape.global_position,(col_shape.shape.radius * scale.x)):
 					var c = t.get_cell_tile_data(cell)
 					if c.has_custom_data("breakable"):
-						var r = rubble.instantiate()
-						r.global_position = local_position
-						get_parent().add_child(r)
-						t.set_cell(cell, -1)
+						if c.get_custom_data("breakable"):
+							var r = rubble.instantiate()
+							r.global_position = local_position
+							get_parent().add_child(r)
+							t.set_cell(cell, -1)
 		if t.has_node("EnemyBomber"):
 			var b = t.get_node("EnemyBomber") as EnemyBomber
 			b.on_boom()

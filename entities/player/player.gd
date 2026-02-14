@@ -34,19 +34,14 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
-	if get_last_slide_collision() and get_last_slide_collision().get_collider() is EnemyMover:
-		if state != states.DEAD:
+	if get_last_slide_collision() and state != states.DEAD:
+		var col = get_last_slide_collision().get_collider()
+		if col is EnemyMover:
+			kill_player()
 			state = states.DEAD
-			state_change.emit(state)
-			var t = Timer.new()
-			add_child(t)
-			t.start(2)
-			await t.timeout
-			player_respawn.emit(global_position)
-			state = states.STILL
-			global_position = spawn_point
-			bombs_left = max_bombs
-			bomb_count_changed.emit(bombs_left)
+		elif col is TileMapLayer and col.name == "damages":
+			kill_player()
+			state = states.DEAD
 
 	if state != states.DEAD:
 		# Get the input direction and handle the movement/deceleration.
@@ -77,6 +72,8 @@ func _physics_process(delta: float) -> void:
 				get_parent().add_child(n)
 				n.set_speed(is_right)
 				bomb_count_changed.emit(bombs_left)
+	else:
+		velocity.x = move_toward(velocity.x, 0, SPEED)
 		
 	update_state()
 
@@ -87,6 +84,20 @@ func _physics_process(delta: float) -> void:
 		#player_skin.scale.x *= -1
 		$PlayerSkin.swap_side(is_right)
 	move_and_slide()
+	
+func kill_player():
+	if state != states.DEAD:
+		state = states.DEAD
+		state_change.emit(state)
+		var t = Timer.new()
+		add_child(t)
+		t.start(2)
+		await t.timeout
+		player_respawn.emit(global_position)
+		global_position = spawn_point
+		state = states.STILL
+		bombs_left = max_bombs
+		bomb_count_changed.emit(bombs_left)
 
 func update_state():
 	var current = state
@@ -98,8 +109,8 @@ func update_state():
 		if !is_on_floor():
 			state = states.JUMP
 
-	if current != state:
-		state_change.emit(state)
+		if current != state:
+			state_change.emit(state)
 
 
 func _on_level_changed(spawn: Variant, level: Level) -> void:
