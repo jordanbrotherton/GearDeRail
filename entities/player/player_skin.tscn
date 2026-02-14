@@ -1,3 +1,20 @@
 [gd_scene format=3 uid="uid://bshhet1ua54ys"]
 
+[ext_resource type="Texture2D" uid="uid://c2a86s6ak1s10" path="res://entities/player/sprites/Protag_Still.png" id="1_tur3g"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_b85me"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_tur3g")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="PlayerSkin" type="Node2D" unique_id=1084475956]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2012692706]
+scale = Vector2(-1, 1)
+sprite_frames = SubResource("SpriteFrames_b85me")
