@@ -8,7 +8,7 @@ signal player_done
 
 @export var area: Area2D
 
-@export var foreground: ColorRect
+@export var foreground: CanvasItem
 @export var color: Color
 
 @export var level_node: Node2D
@@ -25,7 +25,7 @@ func place_level(level: PackedScene) -> void:
 ## This should be when the car is currently active and focused on the camera.
 func focus() -> void:
 	var t = create_tween()
-	t.tween_property(foreground, "color", Color(color, 0), 0.5)
+	t.tween_property(foreground, "modulate:a", 0, 0.5)
 	door_r.unfocus()
 	door_l.unfocus()
 	area.set_deferred("monitoring", true)
@@ -33,7 +33,7 @@ func focus() -> void:
 ## Called when the car is off to the side and is purely a prop.
 func unfocus() -> void:
 	var t = create_tween()
-	t.tween_property(foreground, "color", color, 0.5)
+	t.tween_property(foreground, "modulate:a", 1, 0.5)
 	for child in level_node.get_children():
 		level_node.remove_child(child)
 		child.queue_free()

@@ -1,12 +1,83 @@
 [gd_resource type="SpriteFrames" format=3 uid="uid://chp55qvigm55c"]
 
-[ext_resource type="Texture2D" uid="uid://c2a86s6ak1s10" path="res://entities/player/sprites/Protag_Still.png" id="1_cwske"]
+[ext_resource type="Texture2D" uid="uid://bj35bp3dac2ry" path="res://entities/player/sprites/protag_jump_R_1.png" id="1_p5d33"]
+[ext_resource type="Texture2D" uid="uid://ci2ny5py45jjj" path="res://entities/player/sprites/Protag_Death_R_1.png" id="1_xbl2a"]
+[ext_resource type="Texture2D" uid="uid://4n1irs4las4v" path="res://entities/player/sprites/protag_jump_R_2.png" id="2_7yi1f"]
+[ext_resource type="Texture2D" uid="uid://bnap04fhsvdnq" path="res://entities/player/sprites/Protag_Death_R_2.png" id="2_psl0s"]
+[ext_resource type="Texture2D" uid="uid://b46ryyx6phi7c" path="res://entities/player/sprites/Protag_Death_R_3.png" id="3_h3gfk"]
+[ext_resource type="Texture2D" uid="uid://bsldyt6tcn6ct" path="res://entities/player/sprites/protag_jump_R_3.png" id="3_ki4fr"]
+[ext_resource type="Texture2D" uid="uid://qoybukjwxrmp" path="res://entities/player/sprites/Protag_Death_R_4.png" id="4_0mjrk"]
+[ext_resource type="Texture2D" uid="uid://cclhl5k24or7k" path="res://entities/player/sprites/protag_run_R_1.png" id="4_6jc0q"]
+[ext_resource type="Texture2D" uid="uid://b0pske240m2em" path="res://entities/player/sprites/protag_run_R_2.png" id="5_70nq5"]
+[ext_resource type="Texture2D" uid="uid://lp2br1oi44ux" path="res://entities/player/sprites/Protag_Death_R_5.png" id="5_ob1hc"]
+[ext_resource type="Texture2D" uid="uid://cxbgjb2o0ldu8" path="res://entities/player/sprites/protag_run_R_3.png" id="6_hsmg5"]
+[ext_resource type="Texture2D" uid="uid://dl7mep6hymjo6" path="res://entities/player/sprites/Protag_Death_R_6.png" id="6_umigy"]
+[ext_resource type="Texture2D" uid="uid://bqaybccws0fdl" path="res://entities/player/sprites/Protag_Death_R_7.png" id="7_c3jsp"]
+[ext_resource type="Texture2D" uid="uid://bymfnx22cid5p" path="res://entities/player/sprites/protag_run_R_4.png" id="7_ctuly"]
+[ext_resource type="Texture2D" uid="uid://cxwd8b0hppij4" path="res://entities/player/sprites/Protag_Still_R.png" id="15_xbl2a"]
 
 [resource]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_cwske")
+"texture": ExtResource("1_xbl2a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_psl0s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_h3gfk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_0mjrk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ob1hc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_umigy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_c3jsp")
+}],
+"loop": false,
+"name": &"death",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_p5d33")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_7yi1f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ki4fr")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_6jc0q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_70nq5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_hsmg5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ctuly")
+}],
+"loop": true,
+"name": &"run",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_xbl2a")
 }],
 "loop": true,
 "name": &"still",

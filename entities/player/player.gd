@@ -5,9 +5,11 @@ enum states{
 	STILL,
 	MOVING,
 	BOMB,
-	SOMETHING,
+	JUMP,
 	DEAD
 }
+
+signal state_change(state: states)
 
 @export var player_skin: Node2D
 @export var bomb: PackedScene
@@ -19,6 +21,8 @@ var state = states.STILL
 
 var is_jumped: bool = false
 var is_right: bool = false
+
+var is_dead: bool = false
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -50,6 +54,8 @@ func _physics_process(delta: float) -> void:
 		else: n.global_position.x -= 30
 		get_parent().add_child(n)
 		n.set_speed(is_right)
+		
+	update_state()
 
 	var was_right = is_right
 	if velocity.x > 0: is_right = true
@@ -60,3 +66,18 @@ func _physics_process(delta: float) -> void:
 
 
 	move_and_slide()
+
+func update_state():
+	var current = state
+	if abs(velocity.x) > 0:
+		state = states.MOVING
+	else: state = states.STILL
+	
+	if !is_on_floor():
+		state = states.JUMP
+
+	if is_dead:
+		state = states.DEAD
+
+	if current != state:
+		state_change.emit(state)
