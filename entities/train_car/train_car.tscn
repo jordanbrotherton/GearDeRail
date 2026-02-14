@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://cd3wulhqurbec" path="res://level/bg.png" id="1_lld3l"]
 [ext_resource type="Script" uid="uid://0368qaqvbntg" path="res://entities/train_car/train_car.gd" id="2_onlp1"]
 [ext_resource type="Script" uid="uid://cf0thh0gscwcv" path="res://entities/train_car/door.gd" id="3_b54ri"]
+[ext_resource type="PackedScene" uid="uid://4kfhqg2r53wo" path="res://entities/player/player_death_marker.tscn" id="3_gcsp8"]
 [ext_resource type="Texture2D" uid="uid://8do2pmqgynyw" path="res://entities/train_car/train_front.png" id="4_fkcyj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_onlp1"]
@@ -11,7 +12,7 @@ size = Vector2(0.7594948, 8.35443)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b54ri"]
 size = Vector2(4.1983147, 7.9324894)
 
-[node name="TrainCar" type="Sprite2D" unique_id=2034773766 node_paths=PackedStringArray("door_l", "door_r", "area", "foreground", "level_node")]
+[node name="TrainCar" type="Sprite2D" unique_id=2034773766 node_paths=PackedStringArray("door_l", "door_r", "area", "foreground", "level_node", "spawn_point")]
 scale = Vector2(11.85, 11.85)
 texture = ExtResource("1_lld3l")
 script = ExtResource("2_onlp1")
@@ -21,6 +22,8 @@ area = NodePath("Area2D")
 foreground = NodePath("Sprite2D")
 color = Color(0.22352941, 0.14901961, 0.13725491, 1)
 level_node = NodePath("Node2D")
+spawn_point = NodePath("Spawn")
+death_marker = ExtResource("3_gcsp8")
 
 [node name="Door_R" type="StaticBody2D" parent="." unique_id=944193226 node_paths=PackedStringArray("sprite", "col")]
 script = ExtResource("3_b54ri")
@@ -76,7 +79,11 @@ shape = SubResource("RectangleShape2D_b54ri")
 debug_color = Color(0.2476202, 0.9078648, 0, 0.41960785)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=643395689]
+z_index = 1
 position = Vector2(0, -2.0253167)
 texture = ExtResource("4_fkcyj")
+
+[node name="Spawn" type="Node2D" parent="." unique_id=183964786]
+position = Vector2(-33.248947, 6.5822783)
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_hit"]

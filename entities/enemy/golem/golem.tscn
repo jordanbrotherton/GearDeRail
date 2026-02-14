@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://daupqpk0tau8m"]
+
+[ext_resource type="Texture2D" uid="uid://bq7afkb163xpk" path="res://golem_walking/golem_walking_1.png" id="1_tejc4"]
+[ext_resource type="Script" uid="uid://cbiwkr2ipgkxo" path="res://entities/enemy/enemy_mover.gd" id="1_y3u5y"]
+[ext_resource type="Texture2D" uid="uid://bm3s7qong575l" path="res://golem_walking/golem_walking_2.png" id="2_y3u5y"]
+[ext_resource type="Script" uid="uid://bho2h28vbmydg" path="res://entities/enemy/enemy_bomb.gd" id="4_u1xvb"]
+[ext_resource type="PackedScene" uid="uid://bbwfo1bnff247" path="res://level/rubble.tscn" id="5_v3kdv"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_oenia"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_tejc4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_y3u5y")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tejc4"]
+size = Vector2(22, 24)
+
+[node name="Golem" type="CharacterBody2D" unique_id=179092613 node_paths=PackedStringArray("floor_ray_l", "floor_ray_r", "ray_l", "ray_r")]
+script = ExtResource("1_y3u5y")
+SPEED = 100.0
+floor_ray_l = NodePath("Ray_L")
+floor_ray_r = NodePath("Ray_R")
+ray_l = NodePath("Ray_L2")
+ray_r = NodePath("Ray_R2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1607118020]
+sprite_frames = SubResource("SpriteFrames_oenia")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1671018395]
+position = Vector2(-1, 0)
+shape = SubResource("RectangleShape2D_tejc4")
+debug_color = Color(0.7738004, 0.44256622, 0, 0.41960785)
+
+[node name="Ray_L" type="RayCast2D" parent="." unique_id=1545840720]
+position = Vector2(-13, 9)
+target_position = Vector2(0, 10)
+
+[node name="Ray_L2" type="RayCast2D" parent="." unique_id=1637013324]
+position = Vector2(-12, 1)
+rotation = 1.5707964
+target_position = Vector2(0, 1)
+
+[node name="Ray_R" type="RayCast2D" parent="." unique_id=1674856773]
+position = Vector2(11, 9)
+target_position = Vector2(0, 10)
+
+[node name="Ray_R2" type="RayCast2D" parent="." unique_id=268981242]
+position = Vector2(10, 1)
+rotation = -1.5707964
+target_position = Vector2(0, 1)
+
+[node name="EnemyBomber" type="Node" parent="." unique_id=395591840]
+script = ExtResource("4_u1xvb")
+effect = ExtResource("5_v3kdv")
+metadata/_custom_type_script = "uid://bho2h28vbmydg"

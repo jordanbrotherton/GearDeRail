@@ -1,11 +1,13 @@
 [gd_scene format=4 uid="uid://bbdthj7fwk44h"]
 
 [ext_resource type="TileSet" uid="uid://cfe6f2376jpav" path="res://level/tile1.tres" id="1_aoiym"]
+[ext_resource type="Script" uid="uid://ce0qkykgy05v4" path="res://level/level.gd" id="1_bd4hd"]
 [ext_resource type="TileSet" uid="uid://campbvkxqwrfm" path="res://level/tile2.tres" id="2_b2x2c"]
 
-[node name="Test2" type="Node2D" unique_id=427071674]
+[node name="hi c!" type="Node2D" unique_id=427071674]
 position = Vector2(-24.473, 13.924)
 scale = Vector2(0.161, 0.161)
+script = ExtResource("1_bd4hd")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1701753417]
 

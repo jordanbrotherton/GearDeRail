@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://bxi57dlwl3q7i"]
+
+[ext_resource type="Texture2D" uid="uid://11w6dlcmnin7" path="res://entities/bomb/bomb/bomb_1.png" id="1_pf3gj"]
+[ext_resource type="Script" uid="uid://cw408dqc0uiey" path="res://ui/level_ui.gd" id="1_utfi2"]
+[ext_resource type="FontFile" uid="uid://ke7n8a1sp4qv" path="res://VT323-Regular.ttf" id="3_mghd1"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_2gdlo"]
+font = ExtResource("3_mghd1")
+font_size = 48
+
+[node name="LevelUi" type="Control" unique_id=1222728834 node_paths=PackedStringArray("bomb_label")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_utfi2")
+bomb_label = NodePath("TextureRect/Container/HBoxContainer/Label")
+
+[node name="TextureRect" type="ColorRect" parent="." unique_id=1118906333]
+custom_minimum_size = Vector2(0, 84)
+layout_mode = 1
+offset_right = 152.0
+offset_bottom = 84.0
+color = Color(0.56078434, 0.4509804, 0.2901961, 0.78431374)
+
+[node name="Container" type="MarginContainer" parent="TextureRect" unique_id=1330635434]
+layout_mode = 0
+offset_right = 113.0
+offset_bottom = 74.0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TextureRect/Container" unique_id=167372057]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="TextureRect" type="TextureRect" parent="TextureRect/Container/HBoxContainer" unique_id=1569678785]
+layout_mode = 2
+texture = ExtResource("1_pf3gj")
+expand_mode = 2
+
+[node name="Label" type="Label" parent="TextureRect/Container/HBoxContainer" unique_id=1339330227]
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_2gdlo")
