@@ -48,4 +48,7 @@ func _explode():
 						r.global_position = local_position
 						get_parent().add_child(r)
 						t.set_cell(cell, -1)
+		if t.has_node("EnemyBomber"):
+			var b = t.get_node("EnemyBomber") as EnemyBomber
+			b.on_boom()
 		queue_free()

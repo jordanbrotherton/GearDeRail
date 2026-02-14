@@ -30,6 +30,7 @@ position = Vector2(829.5, -164)
 position = Vector2(1659, -164)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1129138020 node_paths=PackedStringArray("focus_target")]
+position = Vector2(0, -216)
 position_smoothing_enabled = true
 script = ExtResource("6_dg77c")
 focus_target = NodePath("../TrainCar2")
@@ -38,6 +39,12 @@ focus_target = NodePath("../TrainCar2")
 position = Vector2(520, -57.000004)
 scale = Vector2(1.9099334, 1.3317704)
 
+[connection signal="level_changed" from="TrainCar" to="Player" method="_on_level_changed"]
 [connection signal="player_done" from="TrainCar" to="." method="_on_player_done"]
+[connection signal="level_changed" from="TrainCar2" to="Player" method="_on_level_changed"]
 [connection signal="player_done" from="TrainCar2" to="." method="_on_player_done"]
+[connection signal="level_changed" from="TrainCar3" to="Player" method="_on_level_changed"]
 [connection signal="player_done" from="TrainCar3" to="." method="_on_player_done"]
+[connection signal="player_respawn" from="Player" to="TrainCar" method="_on_player_respawn"]
+[connection signal="player_respawn" from="Player" to="TrainCar2" method="_on_player_respawn"]
+[connection signal="player_respawn" from="Player" to="TrainCar3" method="_on_player_respawn"]

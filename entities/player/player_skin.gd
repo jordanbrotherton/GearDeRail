@@ -24,7 +24,6 @@ func on_state_change(state):
 			sprite.animation = "jump"
 			sprite.play()
 
-
 ## Swaps the player's animations to the other direction.
 func swap_side(side: bool):
 	print('a')

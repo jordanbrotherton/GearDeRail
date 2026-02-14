@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://4kfhqg2r53wo"]
+
+[ext_resource type="Texture2D" uid="uid://dsrsxxyxg7s5v" path="res://entities/player/sprites/protag_death_7.png" id="1_imb6m"]
+
+[node name="PlayerDeathMarker" type="Node2D" unique_id=717835152]
+scale = Vector2(0.14, 0.14)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1846958605]
+position = Vector2(0, -0.1)
+texture = ExtResource("1_imb6m")
