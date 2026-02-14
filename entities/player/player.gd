@@ -47,7 +47,7 @@ func _physics_process(delta: float) -> void:
 		n.global_position = global_position
 		if is_right:
 			n.global_position.x += 30
-		else: n.global_position.x -= 30 
+		else: n.global_position.x -= 30
 		get_parent().add_child(n)
 		n.set_speed(is_right)
 
