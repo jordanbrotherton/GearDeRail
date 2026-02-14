@@ -44,12 +44,12 @@ func _physics_process(delta: float) -> void:
 
 	if Input.is_action_just_pressed("bomb"):
 		var n = bomb.instantiate()
-		n.set_speed(is_right)
 		n.global_position = global_position
 		if is_right:
 			n.global_position.x += 30
 		else: n.global_position.x -= 30 
 		get_parent().add_child(n)
+		n.set_speed(is_right)
 
 	var was_right = is_right
 	if velocity.x > 0: is_right = true
