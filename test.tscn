@@ -5,7 +5,6 @@
 [ext_resource type="Texture2D" uid="uid://cd3wulhqurbec" path="res://level/bg.png" id="1_ppyta"]
 [ext_resource type="Script" uid="uid://bwggbcs6sdhn3" path="res://entities/player/camera.gd" id="2_8uh7m"]
 [ext_resource type="TileSet" uid="uid://campbvkxqwrfm" path="res://level/tile2.tres" id="3_ykrsh"]
-[ext_resource type="PackedScene" uid="uid://cjxn4bbkufshn" path="res://entities/bomb/bomb.tscn" id="6_g14j6"]
 
 [node name="Node2D" type="Node2D" unique_id=1954199207]
 
@@ -46,6 +45,3 @@ focus_target = NodePath("../Bg")
 [node name="Player" parent="." unique_id=328416733 instance=ExtResource("1_37kl0")]
 position = Vector2(-12, -57.000004)
 scale = Vector2(1.9099334, 1.3317704)
-
-[node name="Bomb" parent="." unique_id=1478931881 instance=ExtResource("6_g14j6")]
-position = Vector2(45, -64)

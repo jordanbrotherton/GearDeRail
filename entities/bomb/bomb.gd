@@ -1,11 +1,35 @@
 extends CharacterBody2D
 
+@export var explosion: PackedScene
+@export var rubble: PackedScene
+@export var area: Area2D
+@export var col_shape: CollisionShape2D
 
-const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
+const SPEED = 500.0
 
+var move: float
 
+func set_speed(is_right) -> void:
+	move = SPEED if is_right else -SPEED
+	
 func _physics_process(delta: float) -> void:
-	velocity.x = SPEED
-
+	var col = get_last_slide_collision()
+	if col:
+		var e = explosion.instantiate()
+		e.global_position = global_position
+		get_parent().add_child(e)
+		for t in area.get_overlapping_bodies():
+			if t is TileMapLayer:
+				for cell in t.get_used_cells():
+					var local_position = t.to_global(t.map_to_local(cell))
+					if Geometry2D.is_point_in_circle(local_position,col_shape.global_position,(col_shape.shape.radius * scale.x)):
+						var c = t.get_cell_tile_data(cell)
+						if c.has_custom_data("breakable"):
+							var r = rubble.instantiate()
+							r.global_position = local_position
+							get_parent().add_child(r)
+							t.set_cell(cell, -1)
+		queue_free()
+	
+	velocity.x = move
 	move_and_slide()

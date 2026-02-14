@@ -10,6 +10,7 @@ enum states{
 }
 
 @export var player_skin: Node2D
+@export var bomb: PackedScene
 
 @export var SPEED = 400.0
 @export var JUMP_VELOCITY = -400.0
@@ -42,7 +43,13 @@ func _physics_process(delta: float) -> void:
 			is_jumped = true
 
 	if Input.is_action_just_pressed("bomb"):
-		pass
+		var n = bomb.instantiate()
+		n.set_speed(is_right)
+		n.global_position = global_position
+		if is_right:
+			n.global_position.x += 30
+		else: n.global_position.x -= 30 
+		get_parent().add_child(n)
 
 	var was_right = is_right
 	if velocity.x > 0: is_right = true

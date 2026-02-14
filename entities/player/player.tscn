@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cjlgopelrqqif" path="res://entities/player/player.gd" id="1_symyc"]
 [ext_resource type="PackedScene" uid="uid://bshhet1ua54ys" path="res://entities/player/player_skin.tscn" id="2_abrql"]
+[ext_resource type="PackedScene" uid="uid://cjxn4bbkufshn" path="res://entities/bomb/bomb.tscn" id="2_bls4j"]
 [ext_resource type="Texture2D" uid="uid://dqegvc5g8j0f8" path="res://entities/player/sprites/glow.png" id="3_sglur"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sfv1e"]
@@ -15,6 +16,7 @@ colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
 scale = Vector2(1.8810681, 1.8810681)
 script = ExtResource("1_symyc")
 player_skin = NodePath("PlayerSkin")
+bomb = ExtResource("2_bls4j")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1042596007]
 shape = SubResource("RectangleShape2D_sfv1e")

@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://dsx6cd5hh786d"]
+
+[ext_resource type="Texture2D" uid="uid://dibiqqgkkwp0i" path="res://explosion/explosion_1.png" id="1_tic5l"]
+[ext_resource type="Texture2D" uid="uid://cc7s6nkho4g7d" path="res://explosion/explosion_2.png" id="2_ran55"]
+[ext_resource type="Texture2D" uid="uid://b5wfu42fbtat3" path="res://explosion/explosion_3.png" id="3_4jg8r"]
+[ext_resource type="Texture2D" uid="uid://dylkfeve7m2pg" path="res://explosion/explosion_4.png" id="4_6c071"]
+[ext_resource type="Script" uid="uid://f6gwgc11h45u" path="res://explosion/explosion.gd" id="5_ran55"]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_d0cwp"]
+frames = 4
+one_shot = true
+speed_scale = 10.0
+frame_0/texture = ExtResource("1_tic5l")
+frame_1/texture = ExtResource("2_ran55")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("3_4jg8r")
+frame_2/duration = 1.0
+frame_3/texture = ExtResource("4_6c071")
+frame_3/duration = 1.0
+
+[sub_resource type="Gradient" id="Gradient_2utuo"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[node name="Explosion" type="CPUParticles2D" unique_id=234022064]
+emitting = false
+amount = 20
+texture = SubResource("AnimatedTexture_d0cwp")
+one_shot = true
+explosiveness = 1.0
+emission_shape = 1
+emission_sphere_radius = 2.68
+direction = Vector2(0, 1)
+spread = 180.0
+gravity = Vector2(0, 100)
+initial_velocity_max = 48.23
+angular_velocity_min = -104.1
+angular_velocity_max = 39.04
+scale_amount_min = 3.0
+scale_amount_max = 5.0
+color_ramp = SubResource("Gradient_2utuo")
+anim_speed_min = 1.0
+anim_speed_max = 1.0
+script = ExtResource("5_ran55")
