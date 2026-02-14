@@ -2,9 +2,15 @@
 
 [ext_resource type="TileSet" uid="uid://cfe6f2376jpav" path="res://level/tile1.tres" id="1_6uqi0"]
 [ext_resource type="PackedScene" uid="uid://bxvkp7mqo223j" path="res://entities/player/player.tscn" id="1_37kl0"]
+[ext_resource type="Texture2D" uid="uid://cd3wulhqurbec" path="res://level/bg.png" id="1_ppyta"]
 [ext_resource type="Script" uid="uid://bwggbcs6sdhn3" path="res://entities/player/camera.gd" id="2_8uh7m"]
 
 [node name="Node2D" type="Node2D" unique_id=1954199207]
+
+[node name="Bg" type="Sprite2D" parent="." unique_id=812884171]
+position = Vector2(298, -166.00002)
+scale = Vector2(11.961308, 11.9613085)
+texture = ExtResource("1_ppyta")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=881439345]
 
@@ -14,7 +20,6 @@ tile_map_data = PackedByteArray("AAACAP//AAAAAAAAAAADAP//AAAAAAAAAAAEAP//AAAAAAA
 tile_set = ExtResource("1_6uqi0")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1129138020 node_paths=PackedStringArray("focus_target")]
-zoom = Vector2(3, 3)
 position_smoothing_enabled = true
 script = ExtResource("2_8uh7m")
 focus_target = NodePath("../Player")
