@@ -15,6 +15,13 @@ run/main_scene="uid://blcsvjos7srea"
 config/features=PackedStringArray("4.6")
 config/icon="uid://jt3mt6s8q5py"
 
+[display]
+
+window/size/viewport_width=960
+window/size/viewport_height=540
+window/stretch/mode="viewport"
+window/stretch/aspect="expand"
+
 [input]
 
 jump={
