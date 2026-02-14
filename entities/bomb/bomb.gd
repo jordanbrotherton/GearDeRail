@@ -27,6 +27,10 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
 func _explode():
+	var cam = get_viewport().get_camera_2d()
+	if cam and cam.has_method("start_shake"):
+		cam.start_shake()
+	
 	var e = explosion.instantiate()
 	e.global_position = global_position
 	get_parent().add_child(e)
