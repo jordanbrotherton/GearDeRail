@@ -1,11 +1,13 @@
 [gd_scene format=4 uid="uid://c62868fxodmg5"]
 
 [ext_resource type="TileSet" uid="uid://cfe6f2376jpav" path="res://level/tile1.tres" id="1_jr7xr"]
+[ext_resource type="Script" uid="uid://ce0qkykgy05v4" path="res://level/level.gd" id="1_n8ldk"]
 [ext_resource type="TileSet" uid="uid://campbvkxqwrfm" path="res://level/tile2.tres" id="2_n8ldk"]
 
 [node name="Template (copy please!)" type="Node2D" unique_id=1613135151]
 position = Vector2(-24.473, 13.924)
 scale = Vector2(0.161, 0.161)
+script = ExtResource("1_n8ldk")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1892856997]
 

@@ -11,6 +11,7 @@ enum states{
 
 signal state_change(state: states)
 signal player_respawn(pos)
+signal bomb_count_changed(bombs)
 
 @export var player_skin: Node2D
 @export var bomb: PackedScene
@@ -24,6 +25,9 @@ var is_jumped: bool = false
 var is_right: bool = false
 
 var spawn_point: Vector2
+
+var max_bombs: int = 3
+var bombs_left: int = 3
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -41,6 +45,8 @@ func _physics_process(delta: float) -> void:
 			player_respawn.emit(global_position)
 			state = states.STILL
 			global_position = spawn_point
+			bombs_left = max_bombs
+			bomb_count_changed.emit(bombs_left)
 
 	if state != states.DEAD:
 		# Get the input direction and handle the movement/deceleration.
@@ -61,13 +67,16 @@ func _physics_process(delta: float) -> void:
 				is_jumped = true
 
 		if Input.is_action_just_pressed("bomb"):
-			var n = bomb.instantiate()
-			n.global_position = global_position
-			if is_right:
-				n.global_position.x += 30
-			else: n.global_position.x -= 30
-			get_parent().add_child(n)
-			n.set_speed(is_right)
+			if bombs_left > 0:
+				bombs_left -= 1
+				var n = bomb.instantiate()
+				n.global_position = global_position
+				if is_right:
+					n.global_position.x += 30
+				else: n.global_position.x -= 30
+				get_parent().add_child(n)
+				n.set_speed(is_right)
+				bomb_count_changed.emit(bombs_left)
 		
 	update_state()
 
@@ -93,5 +102,9 @@ func update_state():
 		state_change.emit(state)
 
 
-func _on_level_changed(spawn: Variant) -> void:
+func _on_level_changed(spawn: Variant, level: Level) -> void:
 	spawn_point = spawn
+	max_bombs = level.bombs
+	bombs_left = max_bombs
+	bomb_count_changed.emit(bombs_left)
+	

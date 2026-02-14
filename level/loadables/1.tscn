@@ -1,12 +1,14 @@
 [gd_scene format=4 uid="uid://j25b3w3mgw6j"]
 
 [ext_resource type="TileSet" uid="uid://cfe6f2376jpav" path="res://level/tile1.tres" id="1_lrn06"]
+[ext_resource type="Script" uid="uid://ce0qkykgy05v4" path="res://level/level.gd" id="1_qqupm"]
 [ext_resource type="TileSet" uid="uid://campbvkxqwrfm" path="res://level/tile2.tres" id="2_22yjp"]
 [ext_resource type="PackedScene" uid="uid://daupqpk0tau8m" path="res://entities/enemy/golem/golem.tscn" id="3_22yjp"]
 
 [node name="To Start" type="Node2D" unique_id=1613135151]
 position = Vector2(-24.473, 13.924)
 scale = Vector2(0.161, 0.161)
+script = ExtResource("1_qqupm")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1892856997]
 

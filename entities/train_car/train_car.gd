@@ -2,7 +2,7 @@ class_name TrainCar
 extends Sprite2D
 
 signal player_done
-signal level_changed(spawn)
+signal level_changed(spawn, level)
 
 @export var door_l: Node2D
 @export var door_r: Node2D
@@ -25,7 +25,7 @@ func _ready() -> void:
 func place_level(level: PackedScene) -> void:
 	var lvl = level.instantiate()
 	level_node.add_child(lvl)
-	level_changed.emit(spawn_point.global_position)
+	level_changed.emit(spawn_point.global_position, lvl)
 
 ## This should be when the car is currently active and focused on the camera.
 func focus() -> void:
