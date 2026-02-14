@@ -13,7 +13,7 @@ config_version=5
 config/name="GameJamJam"
 run/main_scene="uid://blcsvjos7srea"
 config/features=PackedStringArray("4.6")
-config/icon="res://icon.svg"
+config/icon="uid://jt3mt6s8q5py"
 
 [input]
 

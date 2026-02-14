@@ -1,0 +1,121 @@
+[gd_scene format=3 uid="uid://b56plfywlxndv"]
+
+[ext_resource type="FontFile" uid="uid://ke7n8a1sp4qv" path="res://VT323-Regular.ttf" id="1_oyqm6"]
+[ext_resource type="Texture2D" uid="uid://nbsmmjtu5le4" path="res://title_sprite.png" id="2_3xoar"]
+[ext_resource type="Texture2D" uid="uid://gtrdmag60x47" path="res://ts_buttons.png" id="2_kpexm"]
+[ext_resource type="PackedScene" uid="uid://cgqyi8wgvf0iw" path="res://level/bg/background.tscn" id="4_mom7w"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7lgly"]
+texture = ExtResource("2_3xoar")
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3xoar"]
+texture = ExtResource("2_kpexm")
+expand_margin_top = 1.0
+expand_margin_bottom = 1.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0824t"]
+texture = ExtResource("2_kpexm")
+expand_margin_top = 2.0
+expand_margin_bottom = 2.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nuqgq"]
+texture = ExtResource("2_kpexm")
+expand_margin_top = 2.0
+expand_margin_bottom = 2.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lx2ly"]
+texture = ExtResource("2_kpexm")
+expand_margin_top = 2.0
+expand_margin_bottom = 2.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+
+[node name="Node2D" type="Node2D" unique_id=384791871]
+
+[node name="Background" parent="." unique_id=428480095 instance=ExtResource("4_mom7w")]
+position = Vector2(52, 90)
+
+[node name="Control" type="Control" parent="." unique_id=1883468566]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Control" unique_id=15551130]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/CanvasLayer" unique_id=17329230]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -54.5
+offset_top = -51.0
+offset_right = 54.5
+offset_bottom = 51.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(5, 5)
+
+[node name="Title" type="Label" parent="Control/CanvasLayer/VBoxContainer" unique_id=644449682]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.84313726, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("1_oyqm6")
+theme_override_styles/normal = SubResource("StyleBoxTexture_7lgly")
+text = "Train Heist Game?"
+horizontal_alignment = 1
+
+[node name="Play" type="Button" parent="Control/CanvasLayer/VBoxContainer" unique_id=2140620943]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.84313726, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_constants/align_to_largest_stylebox = 100
+theme_override_fonts/font = ExtResource("1_oyqm6")
+theme_override_font_sizes/font_size = 10
+theme_override_styles/normal = SubResource("StyleBoxTexture_3xoar")
+text = "Play"
+
+[node name="Controls" type="Button" parent="Control/CanvasLayer/VBoxContainer" unique_id=1479317543]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.84313726, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_constants/align_to_largest_stylebox = 1
+theme_override_fonts/font = ExtResource("1_oyqm6")
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxTexture_0824t")
+text = "Controls"
+
+[node name="Credits" type="Button" parent="Control/CanvasLayer/VBoxContainer" unique_id=1730370453]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.84313726, 0, 1)
+theme_override_constants/align_to_largest_stylebox = 1
+theme_override_fonts/font = ExtResource("1_oyqm6")
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxTexture_nuqgq")
+text = "Credits"
+
+[node name="Quit" type="Button" parent="Control/CanvasLayer/VBoxContainer" unique_id=1848672612]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.84313726, 0, 1)
+theme_override_constants/align_to_largest_stylebox = 2
+theme_override_fonts/font = ExtResource("1_oyqm6")
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxTexture_lx2ly")
+text = "Quit"
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1132156732]
+position = Vector2(50, 66)
+zoom = Vector2(10, 10)
