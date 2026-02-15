@@ -36,12 +36,23 @@ func _physics_process(delta: float) -> void:
 
 	if get_last_slide_collision() and state != states.DEAD:
 		var col = get_last_slide_collision().get_collider()
+		var kill = false
 		if col is EnemyMover:
-			kill_player()
-			state = states.DEAD
+			kill = true
 		elif col is TileMapLayer and col.name == "damages":
-			kill_player()
+			kill = true
+		if kill and state != states.DEAD:
 			state = states.DEAD
+			state_change.emit(state)
+			var t = Timer.new()
+			add_child(t)
+			t.start(2)
+			await t.timeout
+			player_respawn.emit(global_position)
+			global_position = spawn_point
+			state = states.STILL
+			bombs_left = max_bombs
+			bomb_count_changed.emit(bombs_left)
 
 	if state != states.DEAD:
 		# Get the input direction and handle the movement/deceleration.
@@ -84,20 +95,6 @@ func _physics_process(delta: float) -> void:
 		#player_skin.scale.x *= -1
 		$PlayerSkin.swap_side(is_right)
 	move_and_slide()
-	
-func kill_player():
-	if state != states.DEAD:
-		state = states.DEAD
-		state_change.emit(state)
-		var t = Timer.new()
-		add_child(t)
-		t.start(2)
-		await t.timeout
-		player_respawn.emit(global_position)
-		global_position = spawn_point
-		state = states.STILL
-		bombs_left = max_bombs
-		bomb_count_changed.emit(bombs_left)
 
 func update_state():
 	var current = state
