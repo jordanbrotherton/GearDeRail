@@ -1,4 +1,4 @@
 class_name Level
 extends Node
 
-@export var bombs: int = 5
+@export var bombs: int = 3
