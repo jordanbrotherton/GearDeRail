@@ -1,0 +1,149 @@
+[gd_scene format=4 uid="uid://bmt3pvxvh4v2g"]
+
+[ext_resource type="Script" uid="uid://ce0qkykgy05v4" path="res://level/level.gd" id="1_pqd23"]
+[ext_resource type="Texture2D" uid="uid://cd3wulhqurbec" path="res://level/bg.png" id="2_dukn5"]
+[ext_resource type="Script" uid="uid://cr5814b5eix1" path="res://level/debug_view.gd" id="3_0suav"]
+[ext_resource type="Texture2D" uid="uid://c2a86s6ak1s10" path="res://entities/player/sprites/Protag_Still.png" id="4_bcpw4"]
+[ext_resource type="TileSet" uid="uid://cfe6f2376jpav" path="res://level/tile1.tres" id="5_uyeeg"]
+[ext_resource type="TileSet" uid="uid://campbvkxqwrfm" path="res://level/tile2.tres" id="6_mgsxo"]
+[ext_resource type="PackedScene" uid="uid://daupqpk0tau8m" path="res://entities/enemy/golem/golem.tscn" id="7_dukn5"]
+[ext_resource type="FontFile" uid="uid://ke7n8a1sp4qv" path="res://VT323-Regular.ttf" id="8_2au5v"]
+[ext_resource type="Texture2D" uid="uid://do4ymjmrsaabb" path="res://ts_button.png" id="9_l1ptd"]
+[ext_resource type="Texture2D" uid="uid://ba4x3a2x44566" path="res://ui/x_key.png" id="10_hc7u8"]
+[ext_resource type="Texture2D" uid="uid://de4vgkebnia2e" path="res://ui/spacebar_key.png" id="11_u6k4u"]
+[ext_resource type="Texture2D" uid="uid://c8bggfrprduop" path="res://ui/r_key.png" id="12_0ht22"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ktfni"]
+texture = ExtResource("9_l1ptd")
+expand_margin_top = 1.0
+expand_margin_bottom = 1.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5ch5h"]
+texture = ExtResource("9_l1ptd")
+expand_margin_top = 1.0
+expand_margin_bottom = 1.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dmtyq"]
+texture = ExtResource("9_l1ptd")
+expand_margin_top = 1.0
+expand_margin_bottom = 1.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4t45b"]
+texture = ExtResource("9_l1ptd")
+expand_margin_top = 1.0
+expand_margin_bottom = 1.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+
+[node name="Template (copy please!)" type="Node2D" unique_id=1613135151]
+position = Vector2(-24.473, 13.924)
+scale = Vector2(0.161, 0.161)
+script = ExtResource("1_pqd23")
+
+[node name="EditHelpers" type="Node2D" parent="." unique_id=615441947]
+
+[node name="Bg" type="Sprite2D" parent="EditHelpers" unique_id=1826616594]
+position = Vector2(152.0062, -86.484474)
+scale = Vector2(6.1894374, 6.1894383)
+texture = ExtResource("2_dukn5")
+script = ExtResource("3_0suav")
+
+[node name="ProtagStill" type="Sprite2D" parent="EditHelpers" unique_id=208886024]
+position = Vector2(-9.484478, -24.372671)
+texture = ExtResource("4_bcpw4")
+script = ExtResource("3_0suav")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1892856997]
+
+[node name="normal" type="TileMapLayer" parent="StaticBody2D" unique_id=642289173]
+tile_map_data = PackedByteArray("AAACAP//AAABAAEAAAACAP7/AAABAAEAAAACAP3/AAABAAEAAAACAPz/AAABAAEAAAACAPv/AAABAAEAAAACAPr/AAABAAEAAAACAPn/AAAAAAEAAAADAPn/AAAAAAAAAAAEAPn/AAAAAAAAAAAFAPn/AAAAAAAAAAAGAPn/AAAAAAAAAAAHAPn/AAABAAAAAAA=")
+tile_set = ExtResource("5_uyeeg")
+
+[node name="breakables" type="TileMapLayer" parent="StaticBody2D" unique_id=202072624]
+tile_map_data = PackedByteArray("AAAHAPj/AAAAAAAAAAAHAPf/AAAAAAAAAAAHAPb/AAAAAAAAAAAHAPX/AAAAAAAAAAAHAPT/AAAAAAAAAAAGAPT/AAAAAAAAAAAGAPX/AAAAAAAAAAAGAPb/AAAAAAAAAAAGAPf/AAAAAAAAAAAGAPj/AAAAAAAAAAA=")
+tile_set = ExtResource("6_mgsxo")
+
+[node name="damages" type="TileMapLayer" parent="StaticBody2D" unique_id=1672787786]
+tile_map_data = PackedByteArray("AAAOAPT/AQAAAAAAAAAOAPX/AQAAAAAAAAAOAPb/AQAAAAAAAAAOAPf/AQAAAAAAAAAOAPj/AQAAAAAAAAAOAPn/AQAAAAAAAAAPAPn/AQAAAAAAAAAQAPn/AQAAAAAAAAARAPn/AQAAAAAAAAASAPn/AQAAAAAAAAATAPn/AQAAAAAAAAAUAPn/AQAAAAAAAAAVAPn/AQAAAAAAAAA=")
+tile_set = ExtResource("6_mgsxo")
+
+[node name="Golem" parent="StaticBody2D" unique_id=179092613 instance=ExtResource("7_dukn5")]
+position = Vector2(332.13043, -129.96274)
+
+[node name="Golem2" parent="StaticBody2D" unique_id=1354384817 instance=ExtResource("7_dukn5")]
+position = Vector2(276.22983, -129.96272)
+
+[node name="Shoot" type="Label" parent="." unique_id=2136521883]
+offset_left = -28.118015
+offset_top = -192.07452
+offset_right = 80.88199
+offset_bottom = -155.07452
+theme_override_colors/font_color = Color(1, 0.84313726, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("8_2au5v")
+theme_override_styles/normal = SubResource("StyleBoxTexture_ktfni")
+text = "to shoot bombs!
+(Break out!)"
+horizontal_alignment = 1
+
+[node name="XKey" type="Sprite2D" parent="Shoot" unique_id=496625931]
+position = Vector2(-6.2111816, 6.2111664)
+scale = Vector2(1.880261, 1.880261)
+texture = ExtResource("10_hc7u8")
+
+[node name="Jump" type="Label" parent="." unique_id=1378516001]
+offset_left = 46.416145
+offset_top = -61.63975
+offset_right = 162.41614
+offset_bottom = -24.639751
+theme_override_colors/font_color = Color(1, 0.84313726, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("8_2au5v")
+theme_override_styles/normal = SubResource("StyleBoxTexture_5ch5h")
+text = "to jump!
+(And double jump!)"
+horizontal_alignment = 1
+
+[node name="SpacebarKey" type="Sprite2D" parent="Jump" unique_id=1855983517]
+position = Vector2(55.900623, -12.422355)
+scale = Vector2(1.8802627, 1.8802627)
+texture = ExtResource("11_u6k4u")
+
+[node name="Deaths" type="Label" parent="." unique_id=1368406020]
+offset_left = 238.96274
+offset_top = -185.86336
+offset_right = 347.96274
+offset_bottom = -148.86336
+theme_override_colors/font_color = Color(1, 0.84313726, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("8_2au5v")
+theme_override_styles/normal = SubResource("StyleBoxTexture_dmtyq")
+text = "These kill you!
+Don't touch them!"
+horizontal_alignment = 1
+
+[node name="Restart" type="Label" parent="." unique_id=1685476225]
+offset_left = 164.42856
+offset_top = -86.484474
+offset_right = 331.4286
+offset_bottom = -9.484474
+theme_override_colors/font_color = Color(1, 0.84313726, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("8_2au5v")
+theme_override_styles/normal = SubResource("StyleBoxTexture_4t45b")
+text = "Bombs refill every level!
+Press            
+                Exit here! ->
+to restart if you run out!"
+horizontal_alignment = 1
+
+[node name="RKey" type="Sprite2D" parent="Restart" unique_id=933074283]
+position = Vector2(49.68945, 49.68944)
+scale = Vector2(1.88, 1.88)
+texture = ExtResource("12_0ht22")

@@ -27,7 +27,6 @@ size = Vector2(134, 135)
 
 [node name="boss_sprite" type="AnimatedSprite2D" parent="." unique_id=2134022285]
 sprite_frames = SubResource("SpriteFrames_sy3t8")
-frame_progress = 0.238882
 script = ExtResource("3_2ci1w")
 
 [node name="EnemyBomber" type="Node" parent="." unique_id=210079757]
