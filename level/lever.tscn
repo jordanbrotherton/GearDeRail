@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://piecxesq123w"]
+
+[ext_resource type="Texture2D" uid="uid://c3ssetgee68n" path="res://lever_1.png" id="1_4itr7"]
+[ext_resource type="Script" uid="uid://clo6mkxdlflvm" path="res://level/lever.gd" id="1_sm3wu"]
+[ext_resource type="Texture2D" uid="uid://f0cdpympr8ee" path="res://lever_3.png" id="2_gfore"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sm3wu"]
+radius = 46.270943
+
+[node name="Lever" type="Node2D" unique_id=1710975573]
+script = ExtResource("1_sm3wu")
+done = ExtResource("2_gfore")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1513496740]
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D" unique_id=2108450565]
+texture = ExtResource("1_4itr7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2140161456]
+shape = SubResource("CircleShape2D_sm3wu")
+debug_color = Color(0, 0.64383554, 0.29841512, 0.41960785)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

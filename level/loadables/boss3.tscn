@@ -8,6 +8,7 @@
 [ext_resource type="TileSet" uid="uid://campbvkxqwrfm" path="res://level/tile2.tres" id="6_h43xg"]
 [ext_resource type="PackedScene" uid="uid://daupqpk0tau8m" path="res://entities/enemy/golem/golem.tscn" id="7_sij0d"]
 [ext_resource type="PackedScene" uid="uid://cc4qeoakul7vg" path="res://entities/enemy/boss/boss_last.tscn" id="8_hhkb0"]
+[ext_resource type="PackedScene" uid="uid://piecxesq123w" path="res://level/lever.tscn" id="9_hhkb0"]
 
 [node name="Template (copy please!)" type="Node2D" unique_id=1613135151]
 position = Vector2(-24.473, 13.924)
@@ -53,3 +54,9 @@ position = Vector2(96.10559, -11.950308)
 [node name="Node2D" parent="." unique_id=1611030541 instance=ExtResource("8_hhkb0")]
 position = Vector2(257.59628, -86.48447)
 scale = Vector2(1.358, 1.358)
+
+[node name="Lever" parent="." unique_id=1710975573 instance=ExtResource("9_hhkb0")]
+position = Vector2(288.6522, -18.161488)
+scale = Vector2(2.0949373, 2.0949373)
+
+[connection signal="is_done" from="Lever" to="." method="_on_lever_is_done"]

@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://ceu8klbcm1naq"]
+
+[ext_resource type="Script" uid="uid://c37w7376iq52j" path="res://finish.gd" id="1_ggktp"]
+[ext_resource type="PackedScene" uid="uid://cgqyi8wgvf0iw" path="res://level/bg/background.tscn" id="1_xfp72"]
+[ext_resource type="PackedScene" uid="uid://couc0arcgkuet" path="res://entities/train_car/train_car.tscn" id="2_ggktp"]
+[ext_resource type="Texture2D" uid="uid://g5qpu6m6isej" path="res://level/bg_front.png" id="3_hd5p8"]
+[ext_resource type="Texture2D" uid="uid://8do2pmqgynyw" path="res://entities/train_car/train_front.png" id="4_7vthi"]
+
+[node name="Finish" type="Node2D" unique_id=1964844069 node_paths=PackedStringArray("train")]
+script = ExtResource("1_ggktp")
+train = NodePath("Node2D/Node2D")
+
+[node name="Background" parent="." unique_id=428480095 instance=ExtResource("1_xfp72")]
+
+[node name="Node2D" type="Node2D" parent="." unique_id=1321750009]
+position = Vector2(14.999999, 6)
+scale = Vector2(0.3178469, 0.3178469)
+
+[node name="Node2D" type="Node2D" parent="Node2D" unique_id=1705243106]
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="TrainCar" parent="Node2D/Node2D" unique_id=2034773766 instance=ExtResource("2_ggktp")]
+position = Vector2(-4.000004, -0.9999981)
+scale = Vector2(0.78142613, 0.78142613)
+
+[node name="TrainCar2" parent="Node2D/Node2D" unique_id=225523083 instance=ExtResource("2_ggktp")]
+position = Vector2(-58, -0.9999981)
+scale = Vector2(0.78142613, 0.78142613)
+
+[node name="TrainCar3" parent="Node2D/Node2D" unique_id=636633710 instance=ExtResource("2_ggktp")]
+position = Vector2(-115.00001, -0.9999981)
+scale = Vector2(0.78142613, 0.78142613)
+
+[node name="TrainCar4" parent="Node2D/Node2D" unique_id=1461943536 instance=ExtResource("2_ggktp")]
+position = Vector2(-168.48488, -0.9999981)
+scale = Vector2(0.78142613, 0.78142613)
+
+[node name="TrainCar5" parent="Node2D/Node2D" unique_id=2066518462 instance=ExtResource("2_ggktp")]
+position = Vector2(-225.1158, -0.9999981)
+scale = Vector2(0.78142613, 0.78142613)
+
+[node name="BgFront" type="Sprite2D" parent="Node2D" unique_id=636368554]
+position = Vector2(57, -4)
+texture = ExtResource("3_hd5p8")
+
+[node name="TrainFront" type="Sprite2D" parent="Node2D" unique_id=1386227611]
+position = Vector2(54.000004, -6)
+scale = Vector2(0.87812257, 1)
+texture = ExtResource("4_7vthi")
+
+[node name="Timer" type="Timer" parent="." unique_id=2005023921]
+autostart = true
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1986509283]
+position = Vector2(-11, 3)
+zoom = Vector2(6, 6)
+
+[node name="Timer2" type="Timer" parent="." unique_id=1977612844]
+wait_time = 5.0
+autostart = true
