@@ -52,4 +52,8 @@ func _explode():
 		if t.has_node("EnemyBomber"):
 			var b = t.get_node("EnemyBomber") as EnemyBomber
 			b.on_boom()
+			if b.effect:
+				var r = b.effect.instantiate()
+				r.global_position = b.get_parent().global_position
+				get_parent().add_child(r)
 		queue_free()

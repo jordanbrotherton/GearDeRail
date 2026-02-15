@@ -3,6 +3,9 @@
 [ext_resource type="Texture2D" uid="uid://bdg5t4jw120ap" path="res://level/tile2break.png" id="1_60vgn"]
 [ext_resource type="Script" uid="uid://f6gwgc11h45u" path="res://explosion/explosion.gd" id="5_gq41n"]
 
+[sub_resource type="Gradient" id="Gradient_60vgn"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
 [node name="Rubble" type="CPUParticles2D" unique_id=234022064]
 emitting = false
 amount = 20
@@ -18,4 +21,5 @@ initial_velocity_max = 48.23
 angular_velocity_min = -104.1
 angular_velocity_max = 39.04
 scale_amount_max = 3.0
+color_ramp = SubResource("Gradient_60vgn")
 script = ExtResource("5_gq41n")

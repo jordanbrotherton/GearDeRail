@@ -1,13 +1,32 @@
-[gd_scene format=3 uid="uid://cer34iix48w60"]
+[gd_scene format=3 uid="uid://c1u6a5hpyrsy0"]
 
 [ext_resource type="Texture2D" uid="uid://ey1r1b7lvpaa" path="res://ui/pause_1.png" id="1_aq7p1"]
 [ext_resource type="Texture2D" uid="uid://bmpw26d0ohush" path="res://ui/pause_2.png" id="2_6eyaj"]
+[ext_resource type="FontFile" uid="uid://ke7n8a1sp4qv" path="res://VT323-Regular.ttf" id="3_jg8ls"]
+[ext_resource type="Texture2D" uid="uid://do4ymjmrsaabb" path="res://ts_button.png" id="4_u063c"]
+[ext_resource type="Texture2D" uid="uid://c1qm3mele5tqn" path="res://ts_button_hover.png" id="5_56vcw"]
+[ext_resource type="Script" uid="uid://ncwu68rksecm" path="res://play.gd" id="6_m0a22"]
+[ext_resource type="AudioStream" uid="uid://64r4n66x3lpu" path="res://ui/blipSelect.wav" id="7_w2ufp"]
 
 [sub_resource type="AnimatedTexture" id="AnimatedTexture_8u653"]
 frames = 2
 frame_0/texture = ExtResource("1_aq7p1")
 frame_1/texture = ExtResource("2_6eyaj")
 frame_1/duration = 1.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_21xor"]
+texture = ExtResource("4_u063c")
+expand_margin_top = 1.0
+expand_margin_bottom = 1.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_a1xvq"]
+texture = ExtResource("5_56vcw")
+expand_margin_top = 1.0
+expand_margin_bottom = 1.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
 
 [node name="CanvasLayer" type="CanvasLayer" unique_id=618145740]
 visible = false
@@ -20,16 +39,49 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.27450982)
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=1774941957]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=844028336]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -54.0
-offset_top = -88.0
-offset_right = 45.0
-offset_bottom = 60.5
+offset_left = -128.0
+offset_top = -42.5
+offset_right = 128.0
+offset_bottom = 42.5
 grow_horizontal = 2
 grow_vertical = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer" unique_id=1774941957]
+layout_mode = 2
 texture = SubResource("AnimatedTexture_8u653")
+expand_mode = 4
+
+[node name="BackToMenu" type="Button" parent="VBoxContainer" unique_id=566427249]
+custom_minimum_size = Vector2(256, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 0.84313726, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 0.84313726, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_constants/align_to_largest_stylebox = 1
+theme_override_fonts/font = ExtResource("3_jg8ls")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxTexture_21xor")
+theme_override_styles/hover = SubResource("StyleBoxTexture_a1xvq")
+text = "Back to Title"
+script = ExtResource("6_m0a22")
+
+[node name="hover" type="AudioStreamPlayer" parent="VBoxContainer/BackToMenu" unique_id=1370344482]
+stream = ExtResource("7_w2ufp")
+volume_db = -10.0
+
+[node name="leave" type="AudioStreamPlayer" parent="VBoxContainer/BackToMenu" unique_id=159148471]
+stream = ExtResource("7_w2ufp")
+volume_db = -10.0
+pitch_scale = 0.75
+
+[connection signal="mouse_entered" from="VBoxContainer/BackToMenu" to="VBoxContainer/BackToMenu" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/BackToMenu" to="VBoxContainer/BackToMenu" method="_on_mouse_exited"]
+[connection signal="pressed" from="VBoxContainer/BackToMenu" to="VBoxContainer/BackToMenu" method="_on_go_back"]

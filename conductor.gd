@@ -16,7 +16,7 @@ func _ready() -> void:
 			var lvl = levels.pop_front()
 			active_car.place_level(lvl)
 			active_car.area.set_deferred("monitoring", true)
-		
+
 ## Triggers the change to the next level.
 func change_level() -> void:
 	if right_car:

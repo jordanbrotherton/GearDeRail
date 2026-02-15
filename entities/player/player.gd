@@ -24,9 +24,11 @@ signal player_death(count)
 @export var SPEED = 400.0
 @export var JUMP_VELOCITY = -400.0
 
+@export var max_jumps = 2
+
 var state = states.STILL
 
-var is_jumped: bool = false
+var jump_count: int = 0
 var is_right: bool = false
 
 var spawn_point: Vector2
@@ -47,6 +49,8 @@ func _physics_process(delta: float) -> void:
 		if col is EnemyMover:
 			kill = true
 		elif col is TileMapLayer and col.name == "damages":
+			kill = true
+		elif Input.is_action_just_pressed("reset"):
 			kill = true
 		if kill and state != states.DEAD:
 			state = states.DEAD
@@ -72,18 +76,18 @@ func _physics_process(delta: float) -> void:
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
 			
+		if is_on_floor(): jump_count = 0
 		# Handle jump.
 		if Input.is_action_just_pressed("jump"):
-			if is_on_floor():
+			jump_count += 1
+			if jump_count <= max_jumps:
 				velocity.y = JUMP_VELOCITY
-				is_jumped = false
-				audio.stream = jump_sound
-				audio.play()
-			elif !is_jumped:
-				velocity.y = JUMP_VELOCITY
-				is_jumped = true
-				audio.stream = djump_sound
-				audio.play()
+				if jump_count == 1:
+					audio.stream = jump_sound
+					audio.play()
+				else:
+					audio.stream = djump_sound
+					audio.play()
 
 		if Input.is_action_just_pressed("bomb"):
 			if bombs_left > 0:
