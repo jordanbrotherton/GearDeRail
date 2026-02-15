@@ -1,7 +1,8 @@
 extends Button
 
 func _on_pressed() -> void:
-	$"../../../..".visible = false
+	$"../..".visible = false
+	$"../../../Control".visible = true
 
 func _on_mouse_entered() -> void:
 	$hover.play()

@@ -2,23 +2,71 @@
 
 [ext_resource type="FontFile" uid="uid://ke7n8a1sp4qv" path="res://VT323-Regular.ttf" id="1_c1t8d"]
 [ext_resource type="Texture2D" uid="uid://do4ymjmrsaabb" path="res://ts_button.png" id="2_g4wvt"]
+[ext_resource type="Texture2D" uid="uid://nbsmmjtu5le4" path="res://title_sprite.png" id="2_j6beo"]
 [ext_resource type="Script" uid="uid://i36ngjxabeyf" path="res://return.gd" id="3_pjc1l"]
 [ext_resource type="AudioStream" uid="uid://64r4n66x3lpu" path="res://ui/blipSelect.wav" id="4_j6beo"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pjc1l"]
-texture = ExtResource("2_g4wvt")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4av4j"]
+texture = ExtResource("2_j6beo")
+expand_margin_top = 1.0
+expand_margin_bottom = 1.0
 axis_stretch_horizontal = 2
 axis_stretch_vertical = 2
 
-[node name="Control" type="Control" unique_id=1019599964]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_j6beo"]
+texture = ExtResource("2_g4wvt")
+expand_margin_top = 1.0
+expand_margin_bottom = 1.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=512799610]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5em78"]
+texture = ExtResource("2_g4wvt")
+expand_margin_top = 1.0
+expand_margin_bottom = 1.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer" unique_id=974392554]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h30m1"]
+texture = ExtResource("2_g4wvt")
+expand_margin_top = 1.0
+expand_margin_bottom = 1.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3mii5"]
+texture = ExtResource("2_g4wvt")
+expand_margin_top = 1.0
+expand_margin_bottom = 1.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pjc1l"]
+texture = ExtResource("2_g4wvt")
+expand_margin_top = 1.0
+expand_margin_bottom = 1.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=512799610]
+visible = false
+
+[node name="Label" type="Label" parent="." unique_id=30529138]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -67.0
+offset_right = 67.0
+offset_bottom = 49.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 0.84313726, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("1_c1t8d")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxTexture_4av4j")
+text = "Credits"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=974392554]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -33,7 +81,51 @@ grow_vertical = 2
 size_flags_horizontal = 6
 size_flags_vertical = 6
 
-[node name="return" type="Button" parent="CanvasLayer/VBoxContainer" unique_id=2032629593]
+[node name="Jordan" type="Label" parent="VBoxContainer" unique_id=1323310493]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.84313726, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("1_c1t8d")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxTexture_j6beo")
+text = "Level design, backgrounds, game mechanics
+Jordan Brotherton"
+horizontal_alignment = 1
+
+[node name="Nathan" type="Label" parent="VBoxContainer" unique_id=481481924]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.84313726, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("1_c1t8d")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxTexture_5em78")
+text = "Sprite work, menu design, audio design
+Nathan Bedell"
+horizontal_alignment = 1
+
+[node name="Music" type="Label" parent="VBoxContainer" unique_id=1825349629]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.84313726, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("1_c1t8d")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxTexture_h30m1")
+text = "Music: Against Villainous Robot & Steampunk Garage
+pixabay.com"
+horizontal_alignment = 1
+
+[node name="Font" type="Label" parent="VBoxContainer" unique_id=1450668638]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.84313726, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("1_c1t8d")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxTexture_3mii5")
+text = "Font: VT323
+Peter Hull"
+horizontal_alignment = 1
+
+[node name="return" type="Button" parent="VBoxContainer" unique_id=2032629593]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 0.84313726, 0, 1)
 theme_override_constants/outline_size = 2
@@ -41,18 +133,25 @@ theme_override_constants/align_to_largest_stylebox = 4
 theme_override_fonts/font = ExtResource("1_c1t8d")
 theme_override_font_sizes/font_size = 48
 theme_override_styles/normal = SubResource("StyleBoxTexture_pjc1l")
-text = "Return"
+text = "Return to Title Screen"
 script = ExtResource("3_pjc1l")
 
-[node name="hover" type="AudioStreamPlayer" parent="CanvasLayer/VBoxContainer/return" unique_id=735805483]
+[node name="hover" type="AudioStreamPlayer" parent="VBoxContainer/return" unique_id=735805483]
 stream = ExtResource("4_j6beo")
 volume_db = -10.0
 
-[node name="leave" type="AudioStreamPlayer" parent="CanvasLayer/VBoxContainer/return" unique_id=423950493]
+[node name="leave" type="AudioStreamPlayer" parent="VBoxContainer/return" unique_id=423950493]
 stream = ExtResource("4_j6beo")
 volume_db = -10.0
 pitch_scale = 0.75
 
-[connection signal="mouse_entered" from="CanvasLayer/VBoxContainer/return" to="CanvasLayer/VBoxContainer/return" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="CanvasLayer/VBoxContainer/return" to="CanvasLayer/VBoxContainer/return" method="_on_mouse_exited"]
-[connection signal="pressed" from="CanvasLayer/VBoxContainer/return" to="CanvasLayer/VBoxContainer/return" method="_on_pressed"]
+[node name="Control" type="Control" parent="." unique_id=1019599964]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[connection signal="mouse_entered" from="VBoxContainer/return" to="VBoxContainer/return" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/return" to="VBoxContainer/return" method="_on_mouse_exited"]
+[connection signal="pressed" from="VBoxContainer/return" to="VBoxContainer/return" method="_on_pressed"]

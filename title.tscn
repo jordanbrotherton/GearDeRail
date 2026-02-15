@@ -67,7 +67,6 @@ position = Vector2(52, 90)
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=15551130]
 
 [node name="Node2D" parent="CanvasLayer" unique_id=2113363014 instance=ExtResource("11_upcoo")]
-visible = false
 
 [node name="Control" type="Control" parent="CanvasLayer" unique_id=1883468566]
 layout_mode = 3
