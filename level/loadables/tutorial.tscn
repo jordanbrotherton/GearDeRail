@@ -55,14 +55,14 @@ texture = ExtResource("2_dukn5")
 script = ExtResource("3_0suav")
 
 [node name="ProtagStill" type="Sprite2D" parent="EditHelpers" unique_id=208886024]
-position = Vector2(-9.484478, -24.372671)
+position = Vector2(-28.11802, -24.372671)
 texture = ExtResource("4_bcpw4")
 script = ExtResource("3_0suav")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1892856997]
 
 [node name="normal" type="TileMapLayer" parent="StaticBody2D" unique_id=642289173]
-tile_map_data = PackedByteArray("AAACAP//AAABAAEAAAACAP7/AAABAAEAAAACAP3/AAABAAEAAAACAPz/AAABAAEAAAACAPv/AAABAAEAAAACAPr/AAABAAEAAAACAPn/AAAAAAEAAAADAPn/AAAAAAAAAAAEAPn/AAAAAAAAAAAFAPn/AAAAAAAAAAAGAPn/AAAAAAAAAAAHAPn/AAABAAAAAAA=")
+tile_map_data = PackedByteArray("AAACAP//AAABAAEAAAACAP7/AAABAAEAAAACAP3/AAABAAEAAAACAPz/AAABAAEAAAACAPv/AAABAAEAAAACAPr/AAABAAEAAAACAPn/AAAAAAEAAAADAPn/AAAAAAAAAAAEAPn/AAAAAAAAAAAFAPn/AAAAAAAAAAAGAPn/AAAAAAAAAAAHAPn/AAABAAAAAAABAPz/AQABAAAAAAAAAPz/AQAAAAAAAAD///z/AQAAAAEAAAA=")
 tile_set = ExtResource("5_uyeeg")
 
 [node name="breakables" type="TileMapLayer" parent="StaticBody2D" unique_id=202072624]

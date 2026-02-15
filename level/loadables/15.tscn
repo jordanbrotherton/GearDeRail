@@ -29,7 +29,7 @@ script = ExtResource("3_ci3o3")
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1892856997]
 
 [node name="normal" type="TileMapLayer" parent="StaticBody2D" unique_id=642289173]
-tile_map_data = PackedByteArray("AAACAP3/AQAAAAEAAAADAP3/AQAAAAAAAAAEAP3/AQAAAAAAAAAFAP3/AQAAAAAAAAAGAP3/AQABAAAAAAALAPz/AQABAAEAAAARAPr/AQABAAEAAAATAP7/AQAAAAEAAAAUAP7/AQAAAAAAAAAVAP7/AQABAAAAAAA=")
+tile_map_data = PackedByteArray("AAACAP3/AQAAAAEAAAADAP3/AQAAAAAAAAAEAP3/AQAAAAAAAAAFAP3/AQAAAAAAAAAGAP3/AQABAAAAAAALAPz/AQABAAEAAAARAPr/AQABAAEAAAATAP7/AQAAAAEAAAAUAP7/AQAAAAAAAAAVAP7/AQABAAAAAAATAP//AQAAAAEAAAAUAP//AQAAAAAAAAAVAP//AQABAAAAAAA=")
 tile_set = ExtResource("5_j2jrc")
 
 [node name="breakables" type="TileMapLayer" parent="StaticBody2D" unique_id=202072624]
@@ -47,4 +47,4 @@ position = Vector2(133.37267, -18.16149)
 position = Vector2(207.90683, -18.16149)
 
 [node name="Golem3" parent="StaticBody2D" unique_id=186717072 instance=ExtResource("7_4b2e0")]
-position = Vector2(276.22983, -18.161491)
+position = Vector2(263.80743, -18.161491)
