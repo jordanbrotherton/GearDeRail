@@ -152,6 +152,8 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
+[connection signal="visibility_changed" from="." to="VBoxContainer/return" method="_on_visibility_changed"]
 [connection signal="mouse_entered" from="VBoxContainer/return" to="VBoxContainer/return" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="VBoxContainer/return" to="VBoxContainer/return" method="_on_mouse_exited"]
 [connection signal="pressed" from="VBoxContainer/return" to="VBoxContainer/return" method="_on_pressed"]
+[connection signal="visibility_changed" from="VBoxContainer/return" to="VBoxContainer/return" method="_on_visibility_changed"]
