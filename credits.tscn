@@ -2,23 +2,23 @@
 
 [ext_resource type="FontFile" uid="uid://ke7n8a1sp4qv" path="res://VT323-Regular.ttf" id="1_c1t8d"]
 [ext_resource type="Texture2D" uid="uid://do4ymjmrsaabb" path="res://ts_button.png" id="2_g4wvt"]
+[ext_resource type="Script" uid="uid://i36ngjxabeyf" path="res://return.gd" id="3_pjc1l"]
+[ext_resource type="AudioStream" uid="uid://64r4n66x3lpu" path="res://ui/blipSelect.wav" id="4_j6beo"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pjc1l"]
 texture = ExtResource("2_g4wvt")
 axis_stretch_horizontal = 2
 axis_stretch_vertical = 2
 
-[node name="Node2D" type="Node2D" unique_id=2113363014]
-
-[node name="Control" type="Control" parent="." unique_id=1019599964]
+[node name="Control" type="Control" unique_id=1019599964]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="CanvasLayer" type="CanvasLayer" parent="Control" unique_id=512799610]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=512799610]
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/CanvasLayer" unique_id=974392554]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer" unique_id=974392554]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -33,7 +33,7 @@ grow_vertical = 2
 size_flags_horizontal = 6
 size_flags_vertical = 6
 
-[node name="Button" type="Button" parent="Control/CanvasLayer/VBoxContainer" unique_id=2032629593]
+[node name="return" type="Button" parent="CanvasLayer/VBoxContainer" unique_id=2032629593]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 0.84313726, 0, 1)
 theme_override_constants/outline_size = 2
@@ -42,3 +42,17 @@ theme_override_fonts/font = ExtResource("1_c1t8d")
 theme_override_font_sizes/font_size = 48
 theme_override_styles/normal = SubResource("StyleBoxTexture_pjc1l")
 text = "Return"
+script = ExtResource("3_pjc1l")
+
+[node name="hover" type="AudioStreamPlayer" parent="CanvasLayer/VBoxContainer/return" unique_id=735805483]
+stream = ExtResource("4_j6beo")
+volume_db = -10.0
+
+[node name="leave" type="AudioStreamPlayer" parent="CanvasLayer/VBoxContainer/return" unique_id=423950493]
+stream = ExtResource("4_j6beo")
+volume_db = -10.0
+pitch_scale = 0.75
+
+[connection signal="mouse_entered" from="CanvasLayer/VBoxContainer/return" to="CanvasLayer/VBoxContainer/return" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/VBoxContainer/return" to="CanvasLayer/VBoxContainer/return" method="_on_mouse_exited"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/return" to="CanvasLayer/VBoxContainer/return" method="_on_pressed"]

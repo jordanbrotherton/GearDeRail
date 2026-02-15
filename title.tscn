@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://bytb84q1c3v28" path="res://credits.gd" id="8_jil77"]
 [ext_resource type="Script" uid="uid://c3saywxyribjy" path="res://quit.gd" id="9_16uvt"]
 [ext_resource type="AudioStream" uid="uid://bn5j413ub62dy" path="res://Music/8059346-against-villainous-robot-148967.mp3" id="11_16uvt"]
+[ext_resource type="PackedScene" uid="uid://b0xxrxya1odmn" path="res://credits.tscn" id="11_upcoo"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7lgly"]
 texture = ExtResource("2_3xoar")
@@ -37,10 +38,24 @@ expand_margin_bottom = 2.0
 axis_stretch_horizontal = 2
 axis_stretch_vertical = 2
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_upcoo"]
+texture = ExtResource("5_jil77")
+expand_margin_top = 1.0
+expand_margin_bottom = 1.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lx2ly"]
 texture = ExtResource("2_kpexm")
 expand_margin_top = 2.0
 expand_margin_bottom = 2.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gjryj"]
+texture = ExtResource("5_jil77")
+expand_margin_top = 1.0
+expand_margin_bottom = 1.0
 axis_stretch_horizontal = 2
 axis_stretch_vertical = 2
 
@@ -50,6 +65,9 @@ axis_stretch_vertical = 2
 position = Vector2(52, 90)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=15551130]
+
+[node name="Node2D" parent="CanvasLayer" unique_id=2113363014 instance=ExtResource("11_upcoo")]
+visible = false
 
 [node name="Control" type="Control" parent="CanvasLayer" unique_id=1883468566]
 layout_mode = 3
@@ -120,11 +138,13 @@ custom_minimum_size = Vector2(128, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(1, 0.84313726, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 0.84313726, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/align_to_largest_stylebox = 1
 theme_override_fonts/font = ExtResource("1_oyqm6")
 theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = SubResource("StyleBoxTexture_nuqgq")
+theme_override_styles/hover = SubResource("StyleBoxTexture_upcoo")
 text = "Credits"
 script = ExtResource("8_jil77")
 
@@ -146,10 +166,12 @@ custom_minimum_size = Vector2(128, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(1, 0.84313726, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 0.84313726, 0, 1)
 theme_override_constants/align_to_largest_stylebox = 2
 theme_override_fonts/font = ExtResource("1_oyqm6")
 theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = SubResource("StyleBoxTexture_lx2ly")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_gjryj")
 text = "Quit"
 script = ExtResource("9_16uvt")
 
