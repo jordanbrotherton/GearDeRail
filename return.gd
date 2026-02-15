@@ -9,3 +9,7 @@ func _on_mouse_entered() -> void:
 
 func _on_mouse_exited() -> void:
 	$leave.play()
+
+func _on_visibility_changed() -> void:
+	if is_visible_in_tree():
+		grab_focus()

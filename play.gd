@@ -20,7 +20,8 @@ func _on_mouse_exited() -> void:
 
 
 func _on_visibility_changed() -> void:
-	grab_focus()
+	if is_visible_in_tree():
+		grab_focus()
 
 
 func _on_focus_entered() -> void:
