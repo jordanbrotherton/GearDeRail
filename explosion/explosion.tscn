@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://b5wfu42fbtat3" path="res://explosion/explosion_3.png" id="3_4jg8r"]
 [ext_resource type="Texture2D" uid="uid://dylkfeve7m2pg" path="res://explosion/explosion_4.png" id="4_6c071"]
 [ext_resource type="Script" uid="uid://f6gwgc11h45u" path="res://explosion/explosion.gd" id="5_ran55"]
+[ext_resource type="AudioStream" uid="uid://dntwg5itkxrhm" path="res://explosion/explosion.wav" id="6_4jg8r"]
 
 [sub_resource type="AnimatedTexture" id="AnimatedTexture_d0cwp"]
 frames = 4
@@ -41,3 +42,7 @@ color_ramp = SubResource("Gradient_2utuo")
 anim_speed_min = 1.0
 anim_speed_max = 1.0
 script = ExtResource("5_ran55")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1267192411]
+stream = ExtResource("6_4jg8r")
+autoplay = true
