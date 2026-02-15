@@ -1,0 +1,45 @@
+[gd_scene format=4 uid="uid://65w6a2g5ewut"]
+
+[ext_resource type="Script" uid="uid://ce0qkykgy05v4" path="res://level/level.gd" id="1_clg08"]
+[ext_resource type="Texture2D" uid="uid://cd3wulhqurbec" path="res://level/bg.png" id="2_4o6h3"]
+[ext_resource type="Script" uid="uid://cr5814b5eix1" path="res://level/debug_view.gd" id="3_nop3x"]
+[ext_resource type="Texture2D" uid="uid://c2a86s6ak1s10" path="res://entities/player/sprites/Protag_Still.png" id="4_31hkq"]
+[ext_resource type="TileSet" uid="uid://cfe6f2376jpav" path="res://level/tile1.tres" id="5_01kg8"]
+[ext_resource type="TileSet" uid="uid://campbvkxqwrfm" path="res://level/tile2.tres" id="6_undj4"]
+[ext_resource type="PackedScene" uid="uid://fsg4g8b60qqf" path="res://entities/enemy/boss/boss.tscn" id="7_5tgx4"]
+
+[node name="Template (copy please!)" type="Node2D" unique_id=1613135151]
+position = Vector2(-24.473, 13.924)
+scale = Vector2(0.161, 0.161)
+script = ExtResource("1_clg08")
+
+[node name="EditHelpers" type="Node2D" parent="." unique_id=615441947]
+
+[node name="Bg" type="Sprite2D" parent="EditHelpers" unique_id=1826616594]
+position = Vector2(152.0062, -86.484474)
+scale = Vector2(6.1894374, 6.1894383)
+texture = ExtResource("2_4o6h3")
+script = ExtResource("3_nop3x")
+
+[node name="ProtagStill" type="Sprite2D" parent="EditHelpers" unique_id=208886024]
+position = Vector2(-52.962738, -36.79504)
+texture = ExtResource("4_31hkq")
+script = ExtResource("3_nop3x")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1892856997]
+
+[node name="normal" type="TileMapLayer" parent="StaticBody2D" unique_id=642289173]
+tile_map_data = PackedByteArray("AAD9////AQAAAAEAAAD+////AQABAAAAAAACAPz/AAABAAAAAAABAPz/AAAAAAEAAAACAPf/AQABAAAAAAABAPf/AQAAAAEAAAAGAPf/AAABAAAAAAAFAPf/AAAAAAAAAAAEAPf/AAAAAAEAAAAIAPv/AQABAAAAAAAHAPv/AQAAAAAAAAAGAPv/AQAAAAEAAAAFAP7/AQABAAEAAAA=")
+tile_set = ExtResource("5_01kg8")
+
+[node name="breakables" type="TileMapLayer" parent="StaticBody2D" unique_id=202072624]
+tile_map_data = PackedByteArray("AAD/////AAAAAAAAAAAAAP7/AAAAAAAAAAAAAP//AAAAAAAAAAABAP//AAAAAAAAAAAAAPn/AAAAAAAAAAAAAPr/AAAAAAAAAAAAAPv/AAAAAAAAAAAGAPr/AAAAAAAAAAAGAPn/AAAAAAAAAAAGAPj/AAAAAAAAAAA=")
+tile_set = ExtResource("6_undj4")
+
+[node name="damages" type="TileMapLayer" parent="StaticBody2D" unique_id=1672787786]
+tile_map_data = PackedByteArray("AAADAP//AQAAAAAAAAADAP7/AQAAAAAAAAADAP3/AQAAAAAAAAADAPz/AQAAAAAAAAADAPv/AQAAAAAAAAADAPr/AQAAAAAAAAADAPn/AQAAAAAAAAADAPj/AQAAAAAAAAADAPf/AQAAAAAAAAAAAP3/AQAAAAAAAAABAP3/AQAAAAAAAAABAP7/AQAAAAAAAAACAP3/AQAAAAAAAAACAP7/AQAAAAAAAAACAP//AQAAAAAAAAAJAPT/AQAAAAAAAAAJAPX/AQAAAAAAAAAJAPb/AQAAAAAAAAAJAPf/AQAAAAAAAAAJAPj/AQAAAAAAAAAJAPn/AQAAAAAAAAAJAPr/AQAAAAAAAAAJAPv/AQAAAAAAAAAJAPz/AQAAAAAAAAAJAP3/AQAAAAAAAAABAPj/AQAAAAAAAAACAPj/AQAAAAAAAAAEAP7/AQAAAAAAAAA=")
+tile_set = ExtResource("6_undj4")
+
+[node name="Node2D" parent="." unique_id=817312075 instance=ExtResource("7_5tgx4")]
+position = Vector2(257.5963, -86.48447)
+scale = Vector2(1.3581356, 1.3581356)

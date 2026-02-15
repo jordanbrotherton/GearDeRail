@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://cc4qeoakul7vg"]
+
+[ext_resource type="Texture2D" uid="uid://bdxc27yr4ienc" path="res://boss/boss_1.png" id="1_opr2s"]
+[ext_resource type="Texture2D" uid="uid://dtfu5mheoagu1" path="res://boss/boss_2.png" id="2_t084c"]
+[ext_resource type="Script" uid="uid://bkvv3aj0sgruw" path="res://entities/enemy/boss.gd" id="3_t4ew0"]
+[ext_resource type="Script" uid="uid://bho2h28vbmydg" path="res://entities/enemy/enemy_bomb.gd" id="4_d5fpa"]
+[ext_resource type="PackedScene" uid="uid://bbwfo1bnff247" path="res://level/rubble.tscn" id="5_opr2s"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sy3t8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_opr2s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_t084c")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nju12"]
+size = Vector2(134, 135)
+
+[node name="Node2D" type="StaticBody2D" unique_id=1611030541]
+
+[node name="boss_sprite" type="AnimatedSprite2D" parent="." unique_id=2134022285]
+sprite_frames = SubResource("SpriteFrames_sy3t8")
+frame_progress = 0.238882
+script = ExtResource("3_t4ew0")
+
+[node name="EnemyBomber" type="Node" parent="." unique_id=210079757]
+script = ExtResource("4_d5fpa")
+effect = ExtResource("5_opr2s")
+metadata/_custom_type_script = "uid://bho2h28vbmydg"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=976964345]
+position = Vector2(0, -1.5)
+shape = SubResource("RectangleShape2D_nju12")
+
+[connection signal="on_hit" from="EnemyBomber" to="boss_sprite" method="_on_enemy_bomber_on_hit"]

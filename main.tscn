@@ -24,12 +24,15 @@
 [ext_resource type="PackedScene" uid="uid://cx4u7urepvkgs" path="res://level/loadables/15.tscn" id="16_d13ii"]
 [ext_resource type="PackedScene" uid="uid://fwatlj66dtvt" path="res://level/loadables/16.tscn" id="17_d13ii"]
 [ext_resource type="Texture2D" uid="uid://g5qpu6m6isej" path="res://level/bg_front.png" id="18_1u8w0"]
-[ext_resource type="PackedScene" uid="uid://c1u6a5hpyrsy0" path="res://pause.tscn" id="25_0odxb"]
-[ext_resource type="Script" uid="uid://bphh3a2njo41w" path="res://pause.gd" id="26_lswn8"]
+[ext_resource type="PackedScene" uid="uid://c62868fxodmg5" path="res://level/loadables/boss1.tscn" id="18_qsp4k"]
+[ext_resource type="PackedScene" uid="uid://65w6a2g5ewut" path="res://level/loadables/boss2.tscn" id="19_kq58d"]
+[ext_resource type="PackedScene" uid="uid://mci1dq66fjb3" path="res://level/loadables/boss3.tscn" id="20_seu75"]
+[ext_resource type="PackedScene" uid="uid://cer34iix48w60" path="res://pause.tscn" id="25_0odxb"]
+[ext_resource type="Script" path="res://pause.gd" id="26_lswn8"]
 
 [node name="MainGame" type="Node2D" unique_id=1954199207 node_paths=PackedStringArray("left_car", "active_car", "right_car")]
 script = ExtResource("1_272bh")
-levels = Array[PackedScene]([ExtResource("2_lquwl"), ExtResource("4_4c57u"), ExtResource("4_kek77"), ExtResource("5_4c57u"), ExtResource("6_efxa6"), ExtResource("7_dg77c"), ExtResource("8_w48qg"), ExtResource("9_vivmo"), ExtResource("10_2cqfq"), ExtResource("11_074og"), ExtResource("12_cegan"), ExtResource("13_82xsv"), ExtResource("14_getpj"), ExtResource("15_ryguw"), ExtResource("16_d13ii"), ExtResource("17_d13ii")])
+levels = Array[PackedScene]([ExtResource("2_lquwl"), ExtResource("4_4c57u"), ExtResource("4_kek77"), ExtResource("5_4c57u"), ExtResource("6_efxa6"), ExtResource("7_dg77c"), ExtResource("8_w48qg"), ExtResource("9_vivmo"), ExtResource("10_2cqfq"), ExtResource("11_074og"), ExtResource("12_cegan"), ExtResource("13_82xsv"), ExtResource("14_getpj"), ExtResource("15_ryguw"), ExtResource("16_d13ii"), ExtResource("17_d13ii"), ExtResource("18_qsp4k"), ExtResource("19_kq58d"), ExtResource("20_seu75")])
 left_car = NodePath("TrainCar")
 active_car = NodePath("TrainCar2")
 right_car = NodePath("TrainCar3")

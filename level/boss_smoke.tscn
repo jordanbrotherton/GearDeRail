@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://dknoa4pt561vg"]
+
+[ext_resource type="Texture2D" uid="uid://c66arxldkalfb" path="res://entities/enemy/boss/boss_smoke_1.png" id="1_a6pww"]
+[ext_resource type="Texture2D" uid="uid://dm5mxfn7cn5up" path="res://entities/enemy/boss/boss_smoke_2.png" id="2_g4sbe"]
+[ext_resource type="Script" uid="uid://f6gwgc11h45u" path="res://explosion/explosion.gd" id="2_m2dkx"]
+[ext_resource type="Texture2D" uid="uid://bmsa7pawt0cs6" path="res://entities/enemy/boss/boss_smoke_3.png" id="3_qxrix"]
+[ext_resource type="Texture2D" uid="uid://bcjcejwqcpdr0" path="res://entities/enemy/boss/boss_smoke_4.png" id="4_arfh7"]
+[ext_resource type="Texture2D" uid="uid://d16doo6o4cnhr" path="res://entities/enemy/boss/boss_smoke_5.png" id="5_aqiry"]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_2lp7g"]
+frames = 5
+speed_scale = 2.0
+frame_0/texture = ExtResource("1_a6pww")
+frame_1/texture = ExtResource("2_g4sbe")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("3_qxrix")
+frame_2/duration = 1.0
+frame_3/texture = ExtResource("4_arfh7")
+frame_3/duration = 1.0
+frame_4/texture = ExtResource("5_aqiry")
+frame_4/duration = 1.0
+
+[node name="Rubble" type="CPUParticles2D" unique_id=234022064]
+emitting = false
+amount = 20
+texture = SubResource("AnimatedTexture_2lp7g")
+one_shot = true
+explosiveness = 1.0
+emission_shape = 1
+emission_sphere_radius = 2.68
+direction = Vector2(0, 1)
+spread = 180.0
+gravity = Vector2(0, 300)
+initial_velocity_max = 48.23
+angular_velocity_min = -104.1
+angular_velocity_max = 39.04
+scale_amount_max = 3.0
+script = ExtResource("2_m2dkx")
