@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://cer34iix48w60"]
+
+[ext_resource type="Texture2D" uid="uid://ey1r1b7lvpaa" path="res://ui/pause_1.png" id="1_aq7p1"]
+[ext_resource type="Texture2D" uid="uid://bmpw26d0ohush" path="res://ui/pause_2.png" id="2_6eyaj"]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_8u653"]
+frames = 2
+frame_0/texture = ExtResource("1_aq7p1")
+frame_1/texture = ExtResource("2_6eyaj")
+frame_1/duration = 1.0
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=618145740]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1488815526]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.27450982)
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1774941957]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -54.0
+offset_top = -88.0
+offset_right = 45.0
+offset_bottom = 60.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AnimatedTexture_8u653")
