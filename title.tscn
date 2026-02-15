@@ -191,12 +191,19 @@ autoplay = true
 position = Vector2(50, 70)
 zoom = Vector2(8, 8)
 
+[connection signal="focus_entered" from="CanvasLayer/Control/VBoxContainer/Play" to="CanvasLayer/Control/VBoxContainer/Play" method="_on_focus_entered"]
+[connection signal="focus_exited" from="CanvasLayer/Control/VBoxContainer/Play" to="CanvasLayer/Control/VBoxContainer/Play" method="_on_focus_exited"]
 [connection signal="mouse_entered" from="CanvasLayer/Control/VBoxContainer/Play" to="CanvasLayer/Control/VBoxContainer/Play" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="CanvasLayer/Control/VBoxContainer/Play" to="CanvasLayer/Control/VBoxContainer/Play" method="_on_mouse_exited"]
 [connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/Play" to="CanvasLayer/Control/VBoxContainer/Play" method="_on_pressed"]
+[connection signal="visibility_changed" from="CanvasLayer/Control/VBoxContainer/Play" to="CanvasLayer/Control/VBoxContainer/Play" method="_on_visibility_changed"]
+[connection signal="focus_entered" from="CanvasLayer/Control/VBoxContainer/Credits" to="CanvasLayer/Control/VBoxContainer/Play" method="_on_focus_entered"]
+[connection signal="focus_exited" from="CanvasLayer/Control/VBoxContainer/Credits" to="CanvasLayer/Control/VBoxContainer/Play" method="_on_focus_exited"]
 [connection signal="mouse_entered" from="CanvasLayer/Control/VBoxContainer/Credits" to="CanvasLayer/Control/VBoxContainer/Credits" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="CanvasLayer/Control/VBoxContainer/Credits" to="CanvasLayer/Control/VBoxContainer/Credits" method="_on_mouse_exited"]
 [connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/Credits" to="CanvasLayer/Control/VBoxContainer/Credits" method="_on_pressed"]
+[connection signal="focus_entered" from="CanvasLayer/Control/VBoxContainer/Quit" to="CanvasLayer/Control/VBoxContainer/Play" method="_on_focus_entered"]
+[connection signal="focus_exited" from="CanvasLayer/Control/VBoxContainer/Quit" to="CanvasLayer/Control/VBoxContainer/Play" method="_on_focus_exited"]
 [connection signal="mouse_entered" from="CanvasLayer/Control/VBoxContainer/Quit" to="CanvasLayer/Control/VBoxContainer/Quit" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="CanvasLayer/Control/VBoxContainer/Quit" to="CanvasLayer/Control/VBoxContainer/Quit" method="_on_mouse_exited"]
 [connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/Quit" to="CanvasLayer/Control/VBoxContainer/Quit" method="_on_pressed"]

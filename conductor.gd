@@ -16,9 +16,12 @@ func _ready() -> void:
 			var lvl = levels.pop_front()
 			active_car.place_level(lvl)
 			active_car.area.set_deferred("monitoring", true)
+			active_car.door_l.focus()
 
 ## Triggers the change to the next level.
 func change_level() -> void:
+	if left_car:
+		left_car.visible = true
 	if right_car:
 		$Camera2D.change_target(right_car)
 		var temp = active_car

@@ -85,3 +85,4 @@ pitch_scale = 0.75
 [connection signal="mouse_entered" from="VBoxContainer/BackToMenu" to="VBoxContainer/BackToMenu" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="VBoxContainer/BackToMenu" to="VBoxContainer/BackToMenu" method="_on_mouse_exited"]
 [connection signal="pressed" from="VBoxContainer/BackToMenu" to="VBoxContainer/BackToMenu" method="_on_go_back"]
+[connection signal="visibility_changed" from="VBoxContainer/BackToMenu" to="VBoxContainer/BackToMenu" method="_on_visibility_changed"]

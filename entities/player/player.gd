@@ -43,12 +43,15 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
-	if get_last_slide_collision() and state != states.DEAD:
-		var col = get_last_slide_collision().get_collider()
+	if state != states.DEAD:
+		var col_d = get_last_slide_collision()
+		var col = null
+		if col_d:
+			col = get_last_slide_collision().get_collider()
 		var kill = false
-		if col is EnemyMover:
+		if col and col is EnemyMover:
 			kill = true
-		elif col is TileMapLayer and col.name == "damages":
+		elif col and col is TileMapLayer and col.name == "damages":
 			kill = true
 		elif Input.is_action_just_pressed("reset"):
 			kill = true
