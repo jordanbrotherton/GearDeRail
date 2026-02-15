@@ -3,12 +3,14 @@
 [ext_resource type="Texture2D" uid="uid://11w6dlcmnin7" path="res://entities/bomb/bomb/bomb_1.png" id="1_pf3gj"]
 [ext_resource type="Script" uid="uid://cw408dqc0uiey" path="res://ui/level_ui.gd" id="1_utfi2"]
 [ext_resource type="FontFile" uid="uid://ke7n8a1sp4qv" path="res://VT323-Regular.ttf" id="3_mghd1"]
+[ext_resource type="Texture2D" uid="uid://jt3mt6s8q5py" path="res://gj_icon.png" id="4_mghd1"]
+[ext_resource type="Texture2D" uid="uid://ch184xetv16do" path="res://ui/stopwatch.png" id="5_2gdlo"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_2gdlo"]
 font = ExtResource("3_mghd1")
 font_size = 48
 
-[node name="LevelUi" type="Control" unique_id=1222728834 node_paths=PackedStringArray("bomb_label")]
+[node name="LevelUi" type="Control" unique_id=1222728834 node_paths=PackedStringArray("bomb_label", "death_label", "time_label")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -16,13 +18,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_utfi2")
-bomb_label = NodePath("TextureRect/Container/HBoxContainer/Label")
+bomb_label = NodePath("TextureRect/Container/VBoxContainer/HBoxContainer/Label")
+death_label = NodePath("TextureRect/Container/VBoxContainer/HBoxContainer/Label2")
+time_label = NodePath("TextureRect2/Container/VBoxContainer/HBoxContainer2/Label")
 
 [node name="TextureRect" type="ColorRect" parent="." unique_id=1118906333]
-custom_minimum_size = Vector2(0, 84)
+custom_minimum_size = Vector2(0, 70)
 layout_mode = 1
-offset_right = 152.0
-offset_bottom = 84.0
+offset_right = 299.0
+offset_bottom = 70.0
 color = Color(0.56078434, 0.4509804, 0.2901961, 0.78431374)
 
 [node name="Container" type="MarginContainer" parent="TextureRect" unique_id=1330635434]
@@ -32,17 +36,66 @@ offset_bottom = 74.0
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 
-[node name="HBoxContainer" type="HBoxContainer" parent="TextureRect/Container" unique_id=167372057]
-custom_minimum_size = Vector2(0, 64)
+[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect/Container" unique_id=1147697589]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TextureRect/Container/VBoxContainer" unique_id=167372057]
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="TextureRect" type="TextureRect" parent="TextureRect/Container/HBoxContainer" unique_id=1569678785]
+[node name="TextureRect" type="TextureRect" parent="TextureRect/Container/VBoxContainer/HBoxContainer" unique_id=1569678785]
 layout_mode = 2
 texture = ExtResource("1_pf3gj")
 expand_mode = 2
 
-[node name="Label" type="Label" parent="TextureRect/Container/HBoxContainer" unique_id=1339330227]
+[node name="Label" type="Label" parent="TextureRect/Container/VBoxContainer/HBoxContainer" unique_id=1339330227]
 layout_mode = 2
 text = "0"
+label_settings = SubResource("LabelSettings_2gdlo")
+
+[node name="TextureRect2" type="TextureRect" parent="TextureRect/Container/VBoxContainer/HBoxContainer" unique_id=2133723409]
+layout_mode = 2
+texture = ExtResource("4_mghd1")
+expand_mode = 2
+
+[node name="Label2" type="Label" parent="TextureRect/Container/VBoxContainer/HBoxContainer" unique_id=1393132103]
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_2gdlo")
+
+[node name="TextureRect2" type="ColorRect" parent="." unique_id=139446899]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -70.0
+offset_right = 211.0
+grow_vertical = 0
+color = Color(0.56078434, 0.4509804, 0.2901961, 0.78431374)
+
+[node name="Container" type="MarginContainer" parent="TextureRect2" unique_id=1886442952]
+layout_mode = 0
+offset_right = 113.0
+offset_bottom = 74.0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect2/Container" unique_id=747647453]
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="TextureRect2/Container/VBoxContainer" unique_id=1214000959]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="TextureRect" type="TextureRect" parent="TextureRect2/Container/VBoxContainer/HBoxContainer2" unique_id=1895688972]
+layout_mode = 2
+texture = ExtResource("5_2gdlo")
+expand_mode = 2
+
+[node name="Label" type="Label" parent="TextureRect2/Container/VBoxContainer/HBoxContainer2" unique_id=541532222]
+layout_mode = 2
+text = "0.00"
 label_settings = SubResource("LabelSettings_2gdlo")
