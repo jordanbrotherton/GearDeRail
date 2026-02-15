@@ -1,0 +1,47 @@
+[gd_scene format=4 uid="uid://5g4b1exv282k"]
+
+[ext_resource type="Script" uid="uid://ce0qkykgy05v4" path="res://level/level.gd" id="1_8iyeq"]
+[ext_resource type="Texture2D" uid="uid://cd3wulhqurbec" path="res://level/bg.png" id="2_q6cnc"]
+[ext_resource type="Script" uid="uid://cr5814b5eix1" path="res://level/debug_view.gd" id="3_xsmup"]
+[ext_resource type="Texture2D" uid="uid://c2a86s6ak1s10" path="res://entities/player/sprites/Protag_Still.png" id="4_embsr"]
+[ext_resource type="TileSet" uid="uid://cfe6f2376jpav" path="res://level/tile1.tres" id="5_8rowi"]
+[ext_resource type="TileSet" uid="uid://campbvkxqwrfm" path="res://level/tile2.tres" id="6_qs3gn"]
+[ext_resource type="PackedScene" uid="uid://daupqpk0tau8m" path="res://entities/enemy/golem/golem.tscn" id="7_q6cnc"]
+
+[node name="Template (copy please!)" type="Node2D" unique_id=1613135151]
+position = Vector2(-24.473, 13.924)
+scale = Vector2(0.161, 0.161)
+script = ExtResource("1_8iyeq")
+
+[node name="EditHelpers" type="Node2D" parent="." unique_id=615441947]
+
+[node name="Bg" type="Sprite2D" parent="EditHelpers" unique_id=1826616594]
+position = Vector2(152.0062, -86.484474)
+scale = Vector2(6.1894374, 6.1894383)
+texture = ExtResource("2_q6cnc")
+script = ExtResource("3_xsmup")
+
+[node name="ProtagStill" type="Sprite2D" parent="EditHelpers" unique_id=208886024]
+position = Vector2(-52.962738, -36.79504)
+texture = ExtResource("4_embsr")
+script = ExtResource("3_xsmup")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1892856997]
+
+[node name="normal" type="TileMapLayer" parent="StaticBody2D" unique_id=642289173]
+tile_map_data = PackedByteArray("AAAAAP7/AAAAAAEAAAAAAP//AQAAAAEAAAABAP7/AAAAAAAAAAACAP7/AAAAAAAAAAADAP7/AAABAAAAAAABAP//AQAAAAAAAAACAP//AQAAAAAAAAADAP//AQABAAAAAAAEAP//AQABAAEAAAAEAP7/AQABAAEAAAAEAP3/AQABAAEAAAAEAPz/AQABAAEAAAAEAPv/AQAAAAEAAAAFAPv/AQAAAAAAAAAGAPv/AQAAAAAAAAAHAPv/AQAAAAAAAAAIAPv/AQABAAAAAAAIAPz/AQABAAEAAAAIAP3/AQABAAEAAAAIAP7/AQABAAEAAAAIAP//AQABAAEAAAAIAPr/AQABAAEAAAAIAPn/AQABAAEAAAAJAP//AAABAAEAAAAJAP7/AAABAAEAAAAJAP3/AAABAAEAAAAJAPz/AAABAAEAAAAJAPv/AAABAAEAAAAJAPr/AAABAAEAAAAJAPn/AAAAAAEAAAAKAPn/AAAAAAAAAAALAPn/AAAAAAAAAAAMAPn/AAABAAAAAAAPAP//AAABAAEAAAATAP//AAABAAEAAAAMAPr/AAABAAEAAAAMAPv/AAABAAEAAAAMAPz/AAABAAEAAAAMAP3/AAABAAEAAAAMAP7/AAABAAEAAAAMAP//AAABAAEAAAA=")
+tile_set = ExtResource("5_8rowi")
+
+[node name="breakables" type="TileMapLayer" parent="StaticBody2D" unique_id=202072624]
+tile_map_data = PackedByteArray("AAAEAPr/AAAAAAAAAAAEAPn/AAAAAAAAAAAIAPj/AAAAAAAAAAAIAPf/AAAAAAAAAAA=")
+tile_set = ExtResource("6_qs3gn")
+
+[node name="damages" type="TileMapLayer" parent="StaticBody2D" unique_id=1672787786]
+tile_map_data = PackedByteArray("AAAFAPz/AQAAAAAAAAAGAPz/AQAAAAAAAAAHAPz/AQAAAAAAAAAHAP3/AQAAAAAAAAAGAP3/AQAAAAAAAAAFAP3/AQAAAAAAAAAFAP7/AQAAAAAAAAAGAP7/AQAAAAAAAAAHAP7/AQAAAAAAAAAHAP//AQAAAAAAAAAGAP//AQAAAAAAAAAFAP//AQAAAAAAAAAOAP//AQAAAAAAAAANAP//AQAAAAAAAAAQAP//AQAAAAAAAAARAP//AQAAAAAAAAASAP//AQAAAAAAAAAUAP//AQAAAAAAAAAVAP//AQAAAAAAAAARAPr/AQAAAAAAAAAQAPr/AQAAAAAAAAASAPr/AQAAAAAAAAAVAPr/AQAAAAAAAAAUAPr/AQAAAAAAAAA=")
+tile_set = ExtResource("6_qs3gn")
+
+[node name="Golem" parent="StaticBody2D" unique_id=179092613 instance=ExtResource("7_q6cnc")]
+position = Vector2(108.527954, -92.69565)
+
+[node name="Golem2" parent="StaticBody2D" unique_id=1886387642 instance=ExtResource("7_q6cnc")]
+position = Vector2(183.06212, -129.96274)

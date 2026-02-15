@@ -12,6 +12,7 @@ enum states{
 signal state_change(state: states)
 signal player_respawn(pos)
 signal bomb_count_changed(bombs)
+signal player_death(count)
 
 @export var player_skin: Node2D
 @export var bomb: PackedScene
@@ -29,6 +30,8 @@ var spawn_point: Vector2
 var max_bombs: int = 3
 var bombs_left: int = 3
 
+var deaths: int = 0
+
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
@@ -43,7 +46,9 @@ func _physics_process(delta: float) -> void:
 			kill = true
 		if kill and state != states.DEAD:
 			state = states.DEAD
+			deaths += 1
 			state_change.emit(state)
+			player_death.emit(deaths)
 			var t = Timer.new()
 			add_child(t)
 			t.start(2)

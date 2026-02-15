@@ -12,10 +12,16 @@
 [ext_resource type="PackedScene" uid="uid://ed1c50potefu" path="res://level/loadables/6.tscn" id="7_dg77c"]
 [ext_resource type="PackedScene" uid="uid://bxvkp7mqo223j" path="res://entities/player/player.tscn" id="7_ycdy4"]
 [ext_resource type="PackedScene" uid="uid://bxi57dlwl3q7i" path="res://ui/level_ui.tscn" id="8_5vw27"]
+[ext_resource type="PackedScene" uid="uid://bbdthj7fwk44h" path="res://level/loadables/7.tscn" id="8_w48qg"]
+[ext_resource type="PackedScene" uid="uid://mrlxuc242ipp" path="res://level/loadables/8.tscn" id="9_vivmo"]
+[ext_resource type="PackedScene" uid="uid://buey2ypfbrp1f" path="res://level/loadables/9.tscn" id="10_2cqfq"]
+[ext_resource type="PackedScene" uid="uid://5g4b1exv282k" path="res://level/loadables/10.tscn" id="11_074og"]
+[ext_resource type="PackedScene" uid="uid://nsbesq16dc76" path="res://level/loadables/11.tscn" id="12_cegan"]
+[ext_resource type="AudioStream" uid="uid://xdk4jsuu831n" path="res://Music/4379051-steampunk-garage-142325.mp3" id="13_ycdy4"]
 
 [node name="MainGame" type="Node2D" unique_id=1954199207 node_paths=PackedStringArray("left_car", "active_car", "right_car")]
 script = ExtResource("1_272bh")
-levels = Array[PackedScene]([ExtResource("2_lquwl"), ExtResource("4_4c57u"), ExtResource("4_kek77"), ExtResource("5_4c57u"), ExtResource("6_efxa6"), ExtResource("7_dg77c")])
+levels = Array[PackedScene]([ExtResource("2_lquwl"), ExtResource("4_4c57u"), ExtResource("4_kek77"), ExtResource("5_4c57u"), ExtResource("6_efxa6"), ExtResource("7_dg77c"), ExtResource("8_w48qg"), ExtResource("9_vivmo"), ExtResource("10_2cqfq"), ExtResource("11_074og"), ExtResource("12_cegan")])
 left_car = NodePath("TrainCar")
 active_car = NodePath("TrainCar2")
 right_car = NodePath("TrainCar3")
@@ -42,11 +48,16 @@ focus_target = NodePath("../TrainCar2")
 
 [node name="Player" parent="." unique_id=328416733 instance=ExtResource("7_ycdy4")]
 position = Vector2(520, -57.000004)
-scale = Vector2(1.9099334, 1.3317704)
+scale = Vector2(1.5, 1.5)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1022356225]
 
 [node name="LevelUi" parent="CanvasLayer" unique_id=1222728834 instance=ExtResource("8_5vw27")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1204004625]
+stream = ExtResource("13_ycdy4")
+autoplay = true
+parameters/looping = true
 
 [connection signal="level_changed" from="TrainCar" to="Player" method="_on_level_changed"]
 [connection signal="player_done" from="TrainCar" to="." method="_on_player_done"]
@@ -55,6 +66,7 @@ scale = Vector2(1.9099334, 1.3317704)
 [connection signal="level_changed" from="TrainCar3" to="Player" method="_on_level_changed"]
 [connection signal="player_done" from="TrainCar3" to="." method="_on_player_done"]
 [connection signal="bomb_count_changed" from="Player" to="CanvasLayer/LevelUi" method="update_bomb"]
+[connection signal="player_death" from="Player" to="CanvasLayer/LevelUi" method="_on_player_death"]
 [connection signal="player_respawn" from="Player" to="TrainCar" method="_on_player_respawn"]
 [connection signal="player_respawn" from="Player" to="TrainCar2" method="_on_player_respawn"]
 [connection signal="player_respawn" from="Player" to="TrainCar3" method="_on_player_respawn"]
