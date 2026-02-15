@@ -4,7 +4,12 @@
 [ext_resource type="Texture2D" uid="uid://nbsmmjtu5le4" path="res://title_sprite.png" id="2_3xoar"]
 [ext_resource type="Texture2D" uid="uid://do4ymjmrsaabb" path="res://ts_button.png" id="2_kpexm"]
 [ext_resource type="PackedScene" uid="uid://cgqyi8wgvf0iw" path="res://level/bg/background.tscn" id="4_mom7w"]
+[ext_resource type="Texture2D" uid="uid://c1qm3mele5tqn" path="res://ts_button_hover.png" id="5_jil77"]
 [ext_resource type="Script" uid="uid://ncwu68rksecm" path="res://play.gd" id="5_mom7w"]
+[ext_resource type="AudioStream" uid="uid://64r4n66x3lpu" path="res://ui/blipSelect.wav" id="6_7lgly"]
+[ext_resource type="Script" uid="uid://bytb84q1c3v28" path="res://credits.gd" id="8_jil77"]
+[ext_resource type="Script" uid="uid://c3saywxyribjy" path="res://quit.gd" id="9_16uvt"]
+[ext_resource type="AudioStream" uid="uid://bn5j413ub62dy" path="res://Music/8059346-against-villainous-robot-148967.mp3" id="11_16uvt"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7lgly"]
 texture = ExtResource("2_3xoar")
@@ -18,10 +23,10 @@ expand_margin_bottom = 1.0
 axis_stretch_horizontal = 2
 axis_stretch_vertical = 2
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0824t"]
-texture = ExtResource("2_kpexm")
-expand_margin_top = 2.0
-expand_margin_bottom = 2.0
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_16uvt"]
+texture = ExtResource("5_jil77")
+expand_margin_top = 1.0
+expand_margin_bottom = 1.0
 axis_stretch_horizontal = 2
 axis_stretch_vertical = 2
 
@@ -75,10 +80,10 @@ theme_override_constants/outline_size = 4
 theme_override_fonts/font = ExtResource("1_oyqm6")
 theme_override_font_sizes/font_size = 72
 theme_override_styles/normal = SubResource("StyleBoxTexture_7lgly")
-text = "Train Heist Game?"
+text = "GEAR DE RAIL"
 horizontal_alignment = 1
 
-[node name="Label" type="Label" parent="CanvasLayer/Control/VBoxContainer" unique_id=29689563]
+[node name="placeholder1" type="Label" parent="CanvasLayer/Control/VBoxContainer" unique_id=29689563]
 layout_mode = 2
 theme_override_font_sizes/font_size = 108
 
@@ -87,26 +92,28 @@ custom_minimum_size = Vector2(256, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(1, 0.84313726, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 0.84313726, 0, 1)
 theme_override_constants/outline_size = 2
 theme_override_constants/align_to_largest_stylebox = 1
 theme_override_fonts/font = ExtResource("1_oyqm6")
 theme_override_font_sizes/font_size = 48
 theme_override_styles/normal = SubResource("StyleBoxTexture_3xoar")
+theme_override_styles/hover = SubResource("StyleBoxTexture_16uvt")
 text = "Play"
 script = ExtResource("5_mom7w")
 
-[node name="Controls" type="Button" parent="CanvasLayer/Control/VBoxContainer" unique_id=1479317543]
-custom_minimum_size = Vector2(128, 0)
+[node name="hover" type="AudioStreamPlayer" parent="CanvasLayer/Control/VBoxContainer/Play" unique_id=1914922197]
+stream = ExtResource("6_7lgly")
+volume_db = -10.0
+
+[node name="leave" type="AudioStreamPlayer" parent="CanvasLayer/Control/VBoxContainer/Play" unique_id=1246220365]
+stream = ExtResource("6_7lgly")
+volume_db = -10.0
+pitch_scale = 0.75
+
+[node name="placeholder2" type="Label" parent="CanvasLayer/Control/VBoxContainer" unique_id=540510987]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_colors/font_color = Color(1, 0.84313726, 0, 1)
-theme_override_constants/outline_size = 2
-theme_override_constants/align_to_largest_stylebox = 1
-theme_override_fonts/font = ExtResource("1_oyqm6")
-theme_override_font_sizes/font_size = 32
-theme_override_styles/normal = SubResource("StyleBoxTexture_0824t")
-text = "Controls"
+theme_override_font_sizes/font_size = 12
 
 [node name="Credits" type="Button" parent="CanvasLayer/Control/VBoxContainer" unique_id=1730370453]
 custom_minimum_size = Vector2(128, 0)
@@ -119,6 +126,20 @@ theme_override_fonts/font = ExtResource("1_oyqm6")
 theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = SubResource("StyleBoxTexture_nuqgq")
 text = "Credits"
+script = ExtResource("8_jil77")
+
+[node name="hover" type="AudioStreamPlayer" parent="CanvasLayer/Control/VBoxContainer/Credits" unique_id=455711759]
+stream = ExtResource("6_7lgly")
+volume_db = -10.0
+
+[node name="leave" type="AudioStreamPlayer" parent="CanvasLayer/Control/VBoxContainer/Credits" unique_id=1022849032]
+stream = ExtResource("6_7lgly")
+volume_db = -10.0
+pitch_scale = 0.75
+
+[node name="placeholder3" type="Label" parent="CanvasLayer/Control/VBoxContainer" unique_id=519715670]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
 
 [node name="Quit" type="Button" parent="CanvasLayer/Control/VBoxContainer" unique_id=1848672612]
 custom_minimum_size = Vector2(128, 0)
@@ -130,9 +151,31 @@ theme_override_fonts/font = ExtResource("1_oyqm6")
 theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = SubResource("StyleBoxTexture_lx2ly")
 text = "Quit"
+script = ExtResource("9_16uvt")
+
+[node name="hover" type="AudioStreamPlayer" parent="CanvasLayer/Control/VBoxContainer/Quit" unique_id=777316399]
+stream = ExtResource("6_7lgly")
+volume_db = -10.0
+
+[node name="leave" type="AudioStreamPlayer" parent="CanvasLayer/Control/VBoxContainer/Quit" unique_id=2036133913]
+stream = ExtResource("6_7lgly")
+volume_db = -10.0
+pitch_scale = 0.75
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CanvasLayer/Control" unique_id=1020139496]
+stream = ExtResource("11_16uvt")
+autoplay = true
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1132156732]
 position = Vector2(50, 70)
 zoom = Vector2(8, 8)
 
+[connection signal="mouse_entered" from="CanvasLayer/Control/VBoxContainer/Play" to="CanvasLayer/Control/VBoxContainer/Play" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/Control/VBoxContainer/Play" to="CanvasLayer/Control/VBoxContainer/Play" method="_on_mouse_exited"]
 [connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/Play" to="CanvasLayer/Control/VBoxContainer/Play" method="_on_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/Control/VBoxContainer/Credits" to="CanvasLayer/Control/VBoxContainer/Credits" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/Control/VBoxContainer/Credits" to="CanvasLayer/Control/VBoxContainer/Credits" method="_on_mouse_exited"]
+[connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/Credits" to="CanvasLayer/Control/VBoxContainer/Credits" method="_on_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/Control/VBoxContainer/Quit" to="CanvasLayer/Control/VBoxContainer/Quit" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/Control/VBoxContainer/Quit" to="CanvasLayer/Control/VBoxContainer/Quit" method="_on_mouse_exited"]
+[connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/Quit" to="CanvasLayer/Control/VBoxContainer/Quit" method="_on_pressed"]

@@ -16,6 +16,10 @@ signal bomb_count_changed(bombs)
 @export var player_skin: Node2D
 @export var bomb: PackedScene
 
+@export var audio: AudioStreamPlayer2D
+@export var jump_sound: AudioStream
+@export var djump_sound: AudioStream
+
 @export var SPEED = 400.0
 @export var JUMP_VELOCITY = -400.0
 
@@ -68,9 +72,13 @@ func _physics_process(delta: float) -> void:
 			if is_on_floor():
 				velocity.y = JUMP_VELOCITY
 				is_jumped = false
+				audio.stream = jump_sound
+				audio.play()
 			elif !is_jumped:
 				velocity.y = JUMP_VELOCITY
 				is_jumped = true
+				audio.stream = djump_sound
+				audio.play()
 
 		if Input.is_action_just_pressed("bomb"):
 			if bombs_left > 0:
