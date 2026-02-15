@@ -2,8 +2,9 @@
 
 [ext_resource type="FontFile" uid="uid://ke7n8a1sp4qv" path="res://VT323-Regular.ttf" id="1_oyqm6"]
 [ext_resource type="Texture2D" uid="uid://nbsmmjtu5le4" path="res://title_sprite.png" id="2_3xoar"]
-[ext_resource type="Texture2D" uid="uid://gtrdmag60x47" path="res://ts_buttons.png" id="2_kpexm"]
+[ext_resource type="Texture2D" uid="uid://do4ymjmrsaabb" path="res://ts_button.png" id="2_kpexm"]
 [ext_resource type="PackedScene" uid="uid://cgqyi8wgvf0iw" path="res://level/bg/background.tscn" id="4_mom7w"]
+[ext_resource type="Script" uid="uid://ncwu68rksecm" path="res://play.gd" id="5_mom7w"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7lgly"]
 texture = ExtResource("2_3xoar")
@@ -77,17 +78,22 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_7lgly")
 text = "Train Heist Game?"
 horizontal_alignment = 1
 
+[node name="Label" type="Label" parent="CanvasLayer/Control/VBoxContainer" unique_id=29689563]
+layout_mode = 2
+theme_override_font_sizes/font_size = 108
+
 [node name="Play" type="Button" parent="CanvasLayer/Control/VBoxContainer" unique_id=2140620943]
 custom_minimum_size = Vector2(256, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(1, 0.84313726, 0, 1)
 theme_override_constants/outline_size = 2
-theme_override_constants/align_to_largest_stylebox = 100
+theme_override_constants/align_to_largest_stylebox = 1
 theme_override_fonts/font = ExtResource("1_oyqm6")
 theme_override_font_sizes/font_size = 48
 theme_override_styles/normal = SubResource("StyleBoxTexture_3xoar")
 text = "Play"
+script = ExtResource("5_mom7w")
 
 [node name="Controls" type="Button" parent="CanvasLayer/Control/VBoxContainer" unique_id=1479317543]
 custom_minimum_size = Vector2(128, 0)
@@ -128,3 +134,5 @@ text = "Quit"
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1132156732]
 position = Vector2(50, 70)
 zoom = Vector2(8, 8)
+
+[connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/Play" to="CanvasLayer/Control/VBoxContainer/Play" method="_on_pressed"]
