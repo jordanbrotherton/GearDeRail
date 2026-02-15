@@ -25,11 +25,11 @@
 [ext_resource type="PackedScene" uid="uid://cx4u7urepvkgs" path="res://level/loadables/15.tscn" id="16_d13ii"]
 [ext_resource type="PackedScene" uid="uid://fwatlj66dtvt" path="res://level/loadables/16.tscn" id="17_d13ii"]
 [ext_resource type="Texture2D" uid="uid://g5qpu6m6isej" path="res://level/bg_front.png" id="18_1u8w0"]
-[ext_resource type="PackedScene" uid="uid://cyeuc6b2lbw5b" path="res://level/loadables/boss1.tscn" id="18_qsp4k"]
+[ext_resource type="PackedScene" path="res://level/loadables/boss1.tscn" id="18_qsp4k"]
 [ext_resource type="PackedScene" uid="uid://65w6a2g5ewut" path="res://level/loadables/boss2.tscn" id="19_kq58d"]
 [ext_resource type="PackedScene" uid="uid://mci1dq66fjb3" path="res://level/loadables/boss3.tscn" id="20_seu75"]
-[ext_resource type="PackedScene" uid="uid://cer34iix48w60" path="res://pause.tscn" id="25_0odxb"]
-[ext_resource type="Script" path="res://pause.gd" id="26_lswn8"]
+[ext_resource type="PackedScene" uid="uid://c1u6a5hpyrsy0" path="res://pause.tscn" id="25_0odxb"]
+[ext_resource type="Script" uid="uid://bphh3a2njo41w" path="res://pause.gd" id="26_lswn8"]
 
 [node name="MainGame" type="Node2D" unique_id=1954199207 node_paths=PackedStringArray("left_car", "active_car", "right_car")]
 script = ExtResource("1_272bh")
@@ -79,10 +79,13 @@ process_mode = 3
 script = ExtResource("26_lswn8")
 
 [connection signal="level_changed" from="TrainCar" to="Player" method="_on_level_changed"]
+[connection signal="level_changed" from="TrainCar" to="CanvasLayer/LevelUi" method="_on_train_car_level_changed"]
 [connection signal="player_done" from="TrainCar" to="." method="_on_player_done"]
 [connection signal="level_changed" from="TrainCar2" to="Player" method="_on_level_changed"]
+[connection signal="level_changed" from="TrainCar2" to="CanvasLayer/LevelUi" method="_on_train_car_level_changed"]
 [connection signal="player_done" from="TrainCar2" to="." method="_on_player_done"]
 [connection signal="level_changed" from="TrainCar3" to="Player" method="_on_level_changed"]
+[connection signal="level_changed" from="TrainCar3" to="CanvasLayer/LevelUi" method="_on_train_car_level_changed"]
 [connection signal="player_done" from="TrainCar3" to="." method="_on_player_done"]
 [connection signal="bomb_count_changed" from="Player" to="CanvasLayer/LevelUi" method="update_bomb"]
 [connection signal="player_death" from="Player" to="CanvasLayer/LevelUi" method="_on_player_death"]
